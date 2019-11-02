@@ -32,27 +32,14 @@ namespace WpfApp1
 
         {
 
-            //--------< db_Get_Connection() >--------
-
-            //< db oeffnen >
-
             string cn_String = Properties.Settings1.Default.connection_String;
 
             SqlConnection cn_connection = new SqlConnection(cn_String);
 
             if (cn_connection.State != ConnectionState.Open) cn_connection.Open();
 
-            //</ db oeffnen >
-
-
-
-            //< output >
 
             return cn_connection;
-
-            //</ output >
-
-            //--------</ db_Get_Connection() >--------
 
         }
         private void Button_Click(object sender, RoutedEventArgs e)
