@@ -13,6 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.Data.SqlClient;
+
+using System.Data;
+
 namespace WpfApp1
 {
     /// <summary>
@@ -23,6 +27,58 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+        }
+        public static SqlConnection Get_DB_Connection()
+
+        {
+
+            //--------< db_Get_Connection() >--------
+
+            //< db oeffnen >
+
+            string cn_String = Properties.Settings1.Default.connection_String;
+
+            SqlConnection cn_connection = new SqlConnection(cn_String);
+
+            if (cn_connection.State != ConnectionState.Open) cn_connection.Open();
+
+            //</ db oeffnen >
+
+
+
+            //< output >
+
+            return cn_connection;
+
+            //</ output >
+
+            //--------</ db_Get_Connection() >--------
+
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine( sender.ToString(), "Button: ");
+        }
+        private void Insert_User(object sender, RoutedEventArgs e)
+        {
+           
+                try
+                {
+                SqlConnection cn_connection = Get_DB_Connection();
+
+
+                
+
+                SqlCommand cmd_Command = new SqlCommand("insert into user_table(username, password) values('kostas','123')", cn_connection);
+
+                cmd_Command.ExecuteNonQuery();
+                
+            }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            
         }
     }
 }
