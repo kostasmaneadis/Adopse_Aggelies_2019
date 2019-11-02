@@ -10,7 +10,7 @@
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         >
     <Grid>
-<<<<<<< HEAD
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition />
@@ -19,9 +19,8 @@
             <Button Height="40" Click="Insert_User">Test</Button>
             <Button Height="40">Test2</Button>
         </StackPanel>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="178,95,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-=======
-        <Button Width="70" Height="20" Click="Button_Click">Hello World</Button>
->>>>>>> b33d74b9b9c3cccfd1bae17896224f5365d36ef8
+            <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="178,95,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Button Width="70" Height="20" Click="Button_Click">Hello World</Button>
+
     </Grid>
 </Window>

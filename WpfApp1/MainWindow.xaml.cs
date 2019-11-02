@@ -26,9 +26,12 @@ namespace WpfApp1
     {
         public MainWindow()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
-<<<<<<< HEAD
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(sender.ToString(), "Button: ");
+        }
         public static SqlConnection Get_DB_Connection()
 
         {
@@ -43,14 +46,7 @@ namespace WpfApp1
             return cn_connection;
 
         }
-=======
 
->>>>>>> b33d74b9b9c3cccfd1bae17896224f5365d36ef8
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            System.Diagnostics.Debug.WriteLine( sender.ToString(), "Button: ");
-        }
-<<<<<<< HEAD
         private void Insert_User(object sender, RoutedEventArgs e)
         {
            
@@ -72,7 +68,7 @@ namespace WpfApp1
                 }
             
         }
-=======
->>>>>>> b33d74b9b9c3cccfd1bae17896224f5365d36ef8
+
+
     }
 }
