@@ -1,0 +1,29 @@
+create table Ads (
+	 id Integer auto_increment primary key,
+	 dateAdded date not null,
+	 description varchar(2000),
+	 superAd boolean not null,
+	 address varchar(50);
+	 primary key (id)
+	);
+ 
+ create table Photos) (
+	 id Integer auto_increment primary key,
+	 adsId foreign key references (Ads.id),
+	 photo blob
+	 );
+	 
+create table Property(
+	 adsid primary key foreing key references (Ads.id),
+	 kind varchar(50) not null,
+	 buy_rent varchar(10) not null,
+	 area float,
+	 dateBuil date,
+	 price float,
+	 new boolean
+	 );
+	 
+	 
+	 
+ 
+ 
