@@ -32,19 +32,21 @@ namespace WpfApp1
         {
             System.Diagnostics.Debug.WriteLine(sender.ToString(), "Button: ");
         }
-        public static SqlConnection Get_DB_Connection()
-
+        public static SqlConnection DB_Connection
         {
+            get
+            {
 
-            string cn_String = Properties.Settings1.Default.connection_String;
+                string cn_String = Properties.Settings1.Default.connection_String;
 
-            SqlConnection cn_connection = new SqlConnection(cn_String);
+                SqlConnection cn_connection = new SqlConnection(cn_String);
 
-            if (cn_connection.State != ConnectionState.Open) cn_connection.Open();
+                if (cn_connection.State != ConnectionState.Open) cn_connection.Open();
 
 
-            return cn_connection;
+                return cn_connection;
 
+            }
         }
 
         private void Insert_User(object sender, RoutedEventArgs e)
@@ -52,7 +54,7 @@ namespace WpfApp1
            
                 try
                 {
-                SqlConnection cn_connection = Get_DB_Connection();
+                SqlConnection cn_connection = DB_Connection;
 
 
                 
