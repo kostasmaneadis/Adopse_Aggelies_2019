@@ -1,0 +1,69 @@
+create table Users (
+	 id Integer auto_increment primary key,
+	 username varchar(50) not null,
+	 password varchar(50) not null,
+	 surname varchar (50 not null,
+	 fathers name varchar(50);
+	 born date
+	 role varchar(5) 
+	);
+
+create table Ads (
+	 id Integer auto_increment primary key,
+	 dateAdded date not null,
+	 description varchar(2000),
+	 superAd boolean not null,
+	 address varchar(50);
+	 primary key (id)
+	);
+ 
+ create table Photos) (
+	 id Integer auto_increment primary key,
+	 adsId foreign key references (Ads.id),
+	 photo blob
+	 );
+	 
+create table Property(
+	 adsid primary key foreing key references (Ads.id),
+	 kind varchar(50) not null,
+	 buy_rent varchar(10) not null,
+	 area float,
+	 dateBuil date,
+	 price float,
+	 new boolean
+	 );
+	 
+	 
+create table Automoto(
+	 adsid primary key foreing key references (Ads.id),
+	 kind varchar(50) not null,
+	 make varchar(10) not null,
+	 mode varchar(10) not null,
+	 color varchar(10) not null,
+	 damages varchar(10) ,
+	 cubit capacity int(50) ,
+	 power int (50) ,
+	 fuel varchar(10) not null,
+	 first registration date,
+	 features varchar(50) not null,
+	 price float,
+	 new boolean
+	 );
+
+create table jobs (
+	 id Integer auto_increment primary key,
+	 adsId foreign key references (Ads.id),
+	 category varchar (50) not null
+	 full part-time varchar(10) 
+   	 jobs_employers varchar (50) not null
+	 );
+	 
+create table helth (
+	 id Integer auto_increment primary key,
+	 adsId foreign key references (Ads.id),
+	 category varchar (20) 
+	 );
+	 
+	 
+ 
+ 
