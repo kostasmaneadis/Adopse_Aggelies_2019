@@ -3,8 +3,8 @@ create table Users (
 	 username varchar(50) not null,
 	 password varchar(50) not null,
 	 surname varchar (50 not null,
-	 fathers name varchar(50);
-	 born date
+	 fathers name varchar(50),
+	 born date,
 	 role varchar(5) 
 	);
 
