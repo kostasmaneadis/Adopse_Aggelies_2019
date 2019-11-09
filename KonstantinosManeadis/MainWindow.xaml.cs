@@ -13,11 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using System.Data.SqlClient;
-
-using System.Data;
-
-namespace WpfApp1
+namespace KonstantinosManeadis
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -26,14 +22,7 @@ namespace WpfApp1
     {
         public MainWindow()
         {
-            //InitializeComponent();
+            InitializeComponent();
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            System.Diagnostics.Debug.WriteLine(sender.ToString(), "Button: ");
-        }
-       
-
-
     }
 }
