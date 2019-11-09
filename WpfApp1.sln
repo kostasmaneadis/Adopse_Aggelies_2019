@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp1", "WpfApp1\WpfApp1.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "job_ads_anastasiadis", "job_ads_anastasiadis\job_ads_anastasiadis.csproj", "{A0F87B5D-CA97-43B9-B7DF-817D0E84D90C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChristosOuzouProject", "ChristosOuzouProject\ChristosOuzouProject.csproj", "{CEEBF63E-C3CD-4013-9DDF-5513A807F88B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChristosOuzouProject", "ChristosOuzouProject\ChristosOuzouProject.csproj", "{672A4E44-6480-49EF-A2DB-70B549A20FF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{A0F87B5D-CA97-43B9-B7DF-817D0E84D90C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0F87B5D-CA97-43B9-B7DF-817D0E84D90C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0F87B5D-CA97-43B9-B7DF-817D0E84D90C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CEEBF63E-C3CD-4013-9DDF-5513A807F88B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CEEBF63E-C3CD-4013-9DDF-5513A807F88B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CEEBF63E-C3CD-4013-9DDF-5513A807F88B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CEEBF63E-C3CD-4013-9DDF-5513A807F88B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{672A4E44-6480-49EF-A2DB-70B549A20FF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{672A4E44-6480-49EF-A2DB-70B549A20FF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{672A4E44-6480-49EF-A2DB-70B549A20FF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{672A4E44-6480-49EF-A2DB-70B549A20FF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
