@@ -24,47 +24,27 @@ namespace ChristosOuzouProject
     /// </summary>
     public partial class MainWindow : Window
     {
-        readonly string constring = "SERVER=localhost;DATABASE=mydb;UID=christos;PASSWORD=2341093066;";
+        static string constring = "SERVER=localhost;DATABASE=mydb;UID=christos;PASSWORD=2341093066;";
+        MySqlConnection conn = new MySqlConnection(constring);
         public MainWindow()
         {
-            //InitializeComponent();
-            /*string constring = "SERVER=localhost;DATABASE=mydb;UID=christos;PASSWORD=2341093066;";
-            StringBuilder errorMessages = new StringBuilder();
-            try
-            {
-                MySqlConnection conn = new MySqlConnection(constring);
-                conn.Open();
-                MySqlCommand comm1 = new MySqlCommand("INSERT INTO users VALUES('USRNAM','PASS','SURNAM','FATHER','1900-1-1','ROLE')", conn);
-                comm1.ExecuteNonQuery();
-                MySqlCommand comm = new MySqlCommand("SELECT * FROM users", conn);
+            InitializeComponent();
+            CB_fill();
 
-                DataTable dt = new DataTable();
-                dt.Load(comm.ExecuteReader());
-                dtgrid.DataContext = dt;
-                conn.Close();
-            }
-            catch (MySqlException ex)
-            {
-                
-                System.Diagnostics.Debug.WriteLine(errorMessages.ToString());
-            }*/
-           
         }
-        private void ComboBox_Loaded(object sender, RoutedEventArgs e)
+        private void CB_fill()
         {
             List<string> data = new List<string>();
             try
             {
-                MySqlConnection conn = new MySqlConnection(constring);
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand("SELECT DISTINCT name FROM subcategories WHERE catId=1", conn);
                 MySqlDataReader rdr = comm.ExecuteReader();
                 while (rdr.Read())
                     data.Add(rdr["name"].ToString());
                 rdr.Close();
-                var comboBox = sender as ComboBox;
-                comboBox.ItemsSource = data;
-
+                mainCatCB.ItemsSource=data;
+                conn.Close();
             }
             catch (MySqlException ex)
             {
@@ -72,6 +52,27 @@ namespace ChristosOuzouProject
                 System.Diagnostics.Debug.WriteLine(ex.ToString());
             }
         }
+        public void subcat_fill(object sender, EventArgs e)
+        {
+            try {
+                List<string> data = new List<string>();
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("SELECT sub2 FROM subcategories WHERE name LIKE @par1",conn);
+                comm.Parameters.AddWithValue("@par1", mainCatCB.Text);
+                MySqlDataReader rdr = comm.ExecuteReader();
+                while (rdr.Read())
+                    data.Add(rdr["sub2"].ToString());
+                rdr.Close();
+                subCatCB.ItemsSource = data;
+                data.Add(mainCatCB.Text);
+                conn.Close();
+            }
+            catch (MySqlException ex){
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
+            
+        }
+        
     }
 
 }
