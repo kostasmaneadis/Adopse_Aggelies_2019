@@ -5,30 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChristosOuzouProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="635" Width="926">
+    <Grid Height="691" Margin="0,0,-90,0">
 
-        <Label Content="Καταχώρηση Αγγελίας Εργασίας" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="40" Grid.ColumnSpan="2"/>
-        <Label Content="Κύρια Κατηγορία:" HorizontalAlignment="Left" Margin="14,77,0,0" VerticalAlignment="Top" FontSize="20" Grid.ColumnSpan="2" Width="169"/>
-        <ComboBox x:Name="mainCatCB" HorizontalAlignment="Left" Margin="233,88,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding}" DropDownClosed="subcat_fill"/>
-        <ComboBox x:Name="subCatCB" HorizontalAlignment="Left" Margin="235,124,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding}"/>
-        <Label Content="Υποκατηγορία:" HorizontalAlignment="Left" Margin="15,111,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
-        <Label x:Name="testL" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="82,306,0,0" VerticalAlignment="Top" Height="56" Width="107"/>
-        <Separator Margin="26,-16,608,20"/>
-        <Label Content="Ωράριο:" HorizontalAlignment="Left" Margin="23,349,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
-        <ComboBox x:Name="foul_part_timeCB" HorizontalAlignment="Left" Margin="243,360,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding}" Cursor="Cross">
+        <Label Content="Καταχώρηση Αγγελίας Εργασίας" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="40"/>
+        <Label Content="Κύρια Κατηγορία:" HorizontalAlignment="Left" Margin="14,95,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
+        <ComboBox x:Name="mainCatCB" HorizontalAlignment="Left" Margin="233,106,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding}" DropDownClosed="Subcat_fill"/>
+        <ComboBox x:Name="subCatCB" HorizontalAlignment="Left" Margin="233,142,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding}"/>
+        <Label Content="Υποκατηγορία:" HorizontalAlignment="Left" Margin="15,129,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
+        <Label x:Name="testL" Content="" HorizontalAlignment="Left" Margin="82,324,0,0" VerticalAlignment="Top" Height="56" Width="107"/>
+        <Separator Margin="26,2,608,2"/>
+        <Label Content="Ωράριο:" HorizontalAlignment="Left" Margin="23,367,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
+        <ComboBox x:Name="foul_part_timeCB" HorizontalAlignment="Left" Margin="237,378,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding}">
             <ComboBoxItem Content="Πλήρες ωράριο"/>
             <ComboBoxItem Content="Ημιαπασχόληση"/>
         </ComboBox>
-        <Label Content="Διεύθυνση" HorizontalAlignment="Left" Margin="19,155,0,0" VerticalAlignment="Top" FontSize="20" Width="169" FontStyle="Normal" FontWeight="Bold"/>
-        <Label Content="Νομός:" HorizontalAlignment="Left" Margin="21,205,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
-        <Label Content="Πόλη/Χωριό:" HorizontalAlignment="Left" Margin="23,239,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
-        <Label Content="Διεύθυνση:" HorizontalAlignment="Left" Margin="25,273,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
-        <ComboBox x:Name="subCatCB_Copy" HorizontalAlignment="Left" Margin="235,216,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding}"/>
-        <ComboBox x:Name="subCatCB_Copy1" HorizontalAlignment="Left" Margin="235,252,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding}"/>
-        <ComboBox x:Name="subCatCB_Copy2" HorizontalAlignment="Left" Margin="235,286,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding}"/>
-        <Label Content="Αριθμός:" HorizontalAlignment="Left" Margin="25,307,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
-        <TextBox HorizontalAlignment="Left" Margin="237,317,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" Height="26" FontSize="17"/>
-        <Button Content="Ανέβασε φωτογραφίες" HorizontalAlignment="Left" Margin="590,173,0,0" VerticalAlignment="Top" Height="44" Width="178" FontSize="16"/>
+        <Label Content="Διεύθυνση" HorizontalAlignment="Left" Margin="19,173,0,0" VerticalAlignment="Top" FontSize="20" Width="169" FontStyle="Normal" FontWeight="Bold"/>
+        <Label Content="Νομός:" HorizontalAlignment="Left" Margin="21,223,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
+        <Label Content="Πόλη/Χωριό:" HorizontalAlignment="Left" Margin="23,257,0,0" VerticalAlignment="Top" FontSize="20" Width="169" />
+        <Label Content="Διεύθυνση:" HorizontalAlignment="Left" Margin="25,291,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
+        <ComboBox x:Name="regionCB" HorizontalAlignment="Left" Margin="235,303,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding}"  DropDownClosed="City_fill"/>
+        <ComboBox x:Name="cityCB" HorizontalAlignment="Left" Margin="235,239,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding}" DropDownClosed="Address_fill"/>
+        <ComboBox x:Name="addressCB" HorizontalAlignment="Left" Margin="235,273,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding}"/>
+        <Label Content="Αριθμός:" HorizontalAlignment="Left" Margin="25,325,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
+        <TextBox HorizontalAlignment="Left" Margin="237,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" Height="26" FontSize="17"/>
+        <Button Content="Ανέβασε φωτογραφίες" HorizontalAlignment="Left" Margin="556,298,0,0" VerticalAlignment="Top" Height="44" Width="178" FontSize="16" Click="UploadImg"/>
+        <Button  HorizontalAlignment="Left" Margin="618,252,0,0" VerticalAlignment="Top" Height="15" Width="20" FontSize="16" Visibility="Hidden">
+            <Image Source="arrow.png" Height="11" RenderTransformOrigin="0.5,0.5" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <Image x:Name="uploadImg" HorizontalAlignment="Left" Height="122" Margin="576,142,0,0" VerticalAlignment="Top" Width="138"/>
+        <Button  HorizontalAlignment="Left" Margin="645,252,0,0" VerticalAlignment="Top" Height="15" Width="20" FontSize="16" Visibility="Hidden">
+            <Image Source="arrow.png" Height="11" RenderTransformOrigin="0.5,0.5" />
+        </Button>
+        <Label Content="Περιγραφή:" HorizontalAlignment="Left" Margin="23,419,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
+        <Border BorderThickness="1.5" BorderBrush="Black" HorizontalAlignment="Left" Margin="26,461,0,0"  VerticalAlignment="Top" Height="108" Width="482">
+            <TextBlock HorizontalAlignment="Left" Margin="26,461,0,0"   TextWrapping="Wrap" VerticalAlignment="Top" Height="108" Width="482"/>
+        </Border>
+
     </Grid>
 </Window>
