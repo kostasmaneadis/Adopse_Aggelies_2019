@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KonstantinosManeadis"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+         
+        >
     <Grid>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="225,307,0,0" VerticalAlignment="Top" Height="40" Width="130" Click="Login_Click"/>
+        <Button Content="Register" HorizontalAlignment="Left" Margin="431,307,0,0" VerticalAlignment="Top" Height="40" Width="130" Click="Register_Click"/>
+        <Label Content="Or" HorizontalAlignment="Left" Margin="379,327,0,0" VerticalAlignment="Top" Height="46" Width="52"/>
+        <TextBox Name="username_textbox" HorizontalAlignment="Left" Margin="225,102,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="336" Height="50"/>
+        <PasswordBox Name="password_textbox" HorizontalAlignment="Left" Margin="233,244,0,0" VerticalAlignment="Top" Width="328" Height="27"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="225,97,0,0" VerticalAlignment="Top" Width="84"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="225,197,0,0" VerticalAlignment="Top" Width="84"/>
+
 
     </Grid>
 </Window>
