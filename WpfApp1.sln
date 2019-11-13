@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KonstantinosManeadis", "Kon
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "realEstate_DimitrisAnastasiadis", "realEstate_DimitrisAnastasiadis\realEstate_DimitrisAnastasiadis.csproj", "{550C918F-6F0D-45D5-85EF-ADAAD480EEDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StefanosUI", "StefanosUI\StefanosUI.csproj", "{A70425DD-A147-4648-AC2A-2FB483649295}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{550C918F-6F0D-45D5-85EF-ADAAD480EEDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{550C918F-6F0D-45D5-85EF-ADAAD480EEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{550C918F-6F0D-45D5-85EF-ADAAD480EEDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A70425DD-A147-4648-AC2A-2FB483649295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A70425DD-A147-4648-AC2A-2FB483649295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A70425DD-A147-4648-AC2A-2FB483649295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A70425DD-A147-4648-AC2A-2FB483649295}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
