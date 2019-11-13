@@ -1,0 +1,29 @@
+string constring = "SERVER=localhost;DATABASE=mydb;UID=christos;PASSWORD=2341093066;";
+            StringBuilder errorMessages = new StringBuilder();
+            try
+            {
+            MySqlConnection conn = new MySqlConnection(constring);
+            conn.Open();
+            MySqlCommand comm1= new MySqlCommand("INSERT INTO users VALUES(100,'USRNAM','PASS','SURNAM','FATHER','1900-1-1','ROLE')", conn);
+            comm1.ExecuteNonQuery();
+            MySqlCommand comm = new MySqlCommand("SELECT * FROM users", conn);
+            
+            DataTable dt = new DataTable();
+            dt.Load(comm.ExecuteReader());
+            dtgrid.DataContext = dt;
+            conn.Close();
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    errorMessages.Append("Index #" + i + "\n" +
+                        "Message: " + ex.Errors[i].Message + "\n" +
+                        "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                        "Source: " + ex.Errors[i].Source + "\n" +
+                        "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+                System.Diagnostics.Debug.WriteLine(errorMessages.ToString());
+            }
+            
+        }
