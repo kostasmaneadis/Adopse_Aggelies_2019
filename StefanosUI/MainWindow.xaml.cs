@@ -24,5 +24,11 @@ namespace StefanosUI
         {
             InitializeComponent();
         }
+
+        private void buttomLogout_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+
+        }
     }
 }

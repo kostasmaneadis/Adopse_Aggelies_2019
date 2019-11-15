@@ -13,8 +13,40 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="MainWindow" Height="450" Width="800">
+        Title="ADS" Height="600" Width="800">
     <Grid>
+        <Grid Height="70" VerticalAlignment="Top" Background="#FF225EB4">
+            <TextBlock Text="YOUR ADS" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" FontWeight="Bold" FontFamily="Arial Black" />
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="settings" VerticalAlignment="Center" FontSize="30" />
+                <materialDesign:PopupBox Margin="10" HorizontalAlignment="Left" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
+                    <StackPanel Width="150">
+                        <Button Content="Account"/>
+                        <Button Content="help"/>
+                        <Separator/>
+                        <Button x:Name="buttomLogout" Content="lougout" Click="buttomLogout_Click"/>
+                    </StackPanel>
+                
+                
+                </materialDesign:PopupBox>
+
+
+
+            </StackPanel>
+        </Grid>
+        <Grid Width="120" HorizontalAlignment="Left" Background="#FF225EB4">
+            <StackPanel>
+                <Grid>
+                    <Button Width="90" Content="LOG IN" VerticalAlignment="Top" />
+                    
+
+                </Grid>
+                <Separator Width="150"/>
+                <Button Width="90" Content="sign up"/>
+            </StackPanel> 
+        </Grid>
+        
+        
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal"/>
             <TextBlock Width="300" Text="FIND EVERYTHING YOU WANT" Margin="10" FontWeight="Bold" FontStyle="Italic" FontSize="20" Background="#FFD9E219"/> 
@@ -22,15 +54,25 @@
             <GroupBox>
                 <Border Background="White" Margin="10 20" CornerRadius="5">
                     <StackPanel Orientation="Horizontal" Margin="25">
-                        <ComboBox Text="Search a category" Margin="15" >
+                        <TextBlock Text="category" HorizontalAlignment="Center" Margin="20" FontWeight="Bold" FontSize="18"/>
+                        <ComboBox  Margin="15"  >
                             <ComboBoxItem Content="category 1" />
                             <ComboBoxItem Content="category 2" />
                             <ComboBoxItem Content="category 3" />
                             <ComboBoxItem Content="category 4" />
                             <ComboBoxItem Content="category 5" />
                         </ComboBox>
-                        <TextBlock Text="first find a category" Margin="15" FontSize="18" FontWeight="Bold"/>
-                        <Button Width="100" Content="search"/>
+                        <TextBlock Text="subcategory" Margin="20" FontWeight="Bold" FontSize="20"/>
+                        <ComboBox  Margin="15"  >
+                            <ComboBoxItem Content="category 1" />
+                            <ComboBoxItem Content="category 2" />
+                            <ComboBoxItem Content="category 3" />
+                            <ComboBoxItem Content="category 4" />
+                            <ComboBoxItem Content="category 5" />
+                        </ComboBox>
+                            <TextBlock Text="first find a category" Margin="15" FontSize="18" FontWeight="Bold"/>
+                            <Button Width="100" Content="search"/>
+                        
 
 
 
