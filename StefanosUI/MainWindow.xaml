@@ -15,7 +15,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="ADS" Height="600" Width="800">
     <Grid>
-        <Grid Height="70" VerticalAlignment="Top" Background="Yellow">
+        <Grid Height="70" VerticalAlignment="Top" Background="Gray">
             <TextBlock Text="YOUR ADS" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" FontWeight="Bold" FontFamily="Arial Black" />
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock Text="settings" VerticalAlignment="Center" FontSize="30" />
@@ -34,7 +34,7 @@
 
             </StackPanel>
         </Grid>
-        <Grid Width="120" HorizontalAlignment="Left" Background="Yellow">
+        <Grid Width="120" HorizontalAlignment="Left" Background="Gray">
             <StackPanel>
                 <Grid>
                     <Button Width="90" Content="LOG IN" VerticalAlignment="Top" />
