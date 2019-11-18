@@ -25,8 +25,9 @@ namespace KonstantinosManeadis.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\kmane\\source\\repos\\W" +
-            "pfApp1\\Adopse_Aggelies_2019\\WpfApp1\\data\\local_db.mdf;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Kostas\\source\\repos\\" +
+            "kostasmaneadis\\Adopse_Aggelies_2019\\WpfApp1\\data\\local_db.mdf;Integrated Securit" +
+            "y=True")]
         public string connection_String {
             get {
                 return ((string)(this["connection_String"]));
