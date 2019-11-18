@@ -11,12 +11,20 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="ADS" Height="600" Width="800">
+        Title="ADS" Height="1000" Width="1000">
+    <Window.Background>
+        <ImageBrush ImageSource="bg1.jpg"/>
+    </Window.Background>
+
     <Grid>
-        <Grid Height="70" VerticalAlignment="Top" Background="Gray">
-            <TextBlock Text="YOUR ADS" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" FontWeight="Bold" FontFamily="Arial Black" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="225*"/>
+            <ColumnDefinition Width="280*"/>
+            <ColumnDefinition Width="487*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Height="70" VerticalAlignment="Top" Grid.ColumnSpan="3" >
+            <TextBlock Text="YOUR ADS"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontFamily="Segoe UI Black" Cursor="None" Foreground="Yellow" />
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock Text="settings" VerticalAlignment="Center" FontSize="30" />
                 <materialDesign:PopupBox Margin="10" HorizontalAlignment="Left" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
@@ -34,10 +42,10 @@
 
             </StackPanel>
         </Grid>
-        <Grid Width="120" HorizontalAlignment="Left" Background="Gray">
+        <Grid Width="120" HorizontalAlignment="Left"  >
             <StackPanel>
                 <Grid>
-                    <Button Width="90" Content="LOG IN" VerticalAlignment="Top" />
+                    <Button Width="90" Content="LOG IN" VerticalAlignment="Top" Click="Button_Click" />
 
 
                 </Grid>
@@ -47,14 +55,14 @@
         </Grid>
 
 
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="20,256,20,255">
             <StackPanel Orientation="Horizontal"/>
-            <TextBlock Width="300" Text="FIND EVERYTHING YOU WANT" Margin="10" FontWeight="Bold" FontStyle="Italic" FontSize="20" />
+            <TextBlock Width="669" Text="  FIND EVERYTHING YOU WANT:" Margin="50" FontWeight="Bold" FontStyle="Italic" FontSize="40" Foreground="Yellow" />
 
             <GroupBox>
-                <Border Background="White" Margin="10 20" CornerRadius="5">
+                <Border Background="Gray" Margin="50 60" CornerRadius="5">
                     <StackPanel Orientation="Horizontal" Margin="25">
-                        <TextBlock Text="category" HorizontalAlignment="Center" Margin="20" FontWeight="Bold" FontSize="18"/>
+                        <TextBlock Text="category" HorizontalAlignment="Center" Margin="40" FontWeight="Bold" FontSize="20"/>
                         <ComboBox  Margin="15"  >
                             <ComboBoxItem Content="category 1" />
                             <ComboBoxItem Content="category 2" />
@@ -62,7 +70,7 @@
                             <ComboBoxItem Content="category 4" />
                             <ComboBoxItem Content="category 5" />
                         </ComboBox>
-                        <TextBlock Text="subcategory" Margin="20" FontWeight="Bold" FontSize="20"/>
+                        <TextBlock Text="subcategory" Margin="40" FontWeight="Bold" FontSize="20"/>
                         <ComboBox  Margin="15"  >
                             <ComboBoxItem Content="category 1" />
                             <ComboBoxItem Content="category 2" />
@@ -70,7 +78,7 @@
                             <ComboBoxItem Content="category 4" />
                             <ComboBoxItem Content="category 5" />
                         </ComboBox>
-                        <TextBlock Text="first find a category" Margin="15" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Text="first find a category" Margin="40" FontSize="20" FontWeight="Bold"/>
                         <Button Width="100" Content="search"/>
 
 
@@ -81,9 +89,11 @@
                 </Border>
             </GroupBox>
         </StackPanel>
-        
-                
-        <Image Margin="576,85,32,324" Source="ads-logo.png" Stretch="Fill"/>
+        <Image Source="ads-logo.png" Grid.Column="2" HorizontalAlignment="Left" Height="145" Margin="220,120,-33,0" VerticalAlignment="Top" Width="300"/>
+
+
+
+
 
 
     </Grid>
