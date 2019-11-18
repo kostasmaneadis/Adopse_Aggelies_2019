@@ -105,22 +105,13 @@
     <Resource Include="ads-logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="image3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="green.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="bg.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="bg1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="search2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="search 3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

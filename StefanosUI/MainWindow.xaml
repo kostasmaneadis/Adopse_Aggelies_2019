@@ -24,15 +24,15 @@
             <ColumnDefinition Width="487*"/>
         </Grid.ColumnDefinitions>
         <Grid Height="70" VerticalAlignment="Top" Grid.ColumnSpan="3" >
-            <TextBlock Text="YOUR ADS"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontFamily="Segoe UI Black" Cursor="None" Foreground="Yellow" />
+            <TextBlock Text="YOUR ADS"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontFamily="Segoe UI Black" Cursor="None" Foreground="White" />
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock Text="settings" VerticalAlignment="Center" FontSize="30" />
                 <materialDesign:PopupBox Margin="10" HorizontalAlignment="Left" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
                     <StackPanel Width="150">
                         <Button Content="Account"/>
-                        <Button Content="help"/>
+                        <Button Content="Help"/>
                         <Separator/>
-                        <Button x:Name="buttomLogout" Content="lougout" Click="buttomLogout_Click"/>
+                        <Button x:Name="buttomLogout" Content="Lockout" Click="buttomLogout_Click"/>
                     </StackPanel>
 
 
@@ -45,24 +45,24 @@
         <Grid Width="120" HorizontalAlignment="Left"  >
             <StackPanel>
                 <Grid>
-                    <Button Width="90" Content="LOG IN" VerticalAlignment="Top" Click="Button_Click" />
+                    <Button Width="90" Content="Lock in" VerticalAlignment="Top" Click="Button_Click" />
 
 
                 </Grid>
                 <Separator Width="150"/>
-                <Button Width="90" Content="sign up"/>
+                <Button Width="90" Content="Sign up"/>
             </StackPanel>
         </Grid>
 
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="20,256,20,255">
             <StackPanel Orientation="Horizontal"/>
-            <TextBlock Width="669" Text="  FIND EVERYTHING YOU WANT:" Margin="50" FontWeight="Bold" FontStyle="Italic" FontSize="40" Foreground="Yellow" />
+            <TextBlock Width="669" Text="  FIND EVERYTHING YOU WANT:" Margin="50" FontWeight="Bold" FontStyle="Italic" FontSize="40" Foreground="White" FontFamily="Segoe UI Black" />
 
             <GroupBox>
-                <Border Background="Gray" Margin="50 60" CornerRadius="5">
+                <Border Background="White" Margin="50 60" CornerRadius="5">
                     <StackPanel Orientation="Horizontal" Margin="25">
-                        <TextBlock Text="category" HorizontalAlignment="Center" Margin="40" FontWeight="Bold" FontSize="20"/>
+                        <TextBlock Text="Category" HorizontalAlignment="Center" Margin="40" FontWeight="Bold" FontSize="20"/>
                         <ComboBox  Margin="15"  >
                             <ComboBoxItem Content="category 1" />
                             <ComboBoxItem Content="category 2" />
@@ -70,7 +70,7 @@
                             <ComboBoxItem Content="category 4" />
                             <ComboBoxItem Content="category 5" />
                         </ComboBox>
-                        <TextBlock Text="subcategory" Margin="40" FontWeight="Bold" FontSize="20"/>
+                        <TextBlock Text="Subcategory" Margin="40" FontWeight="Bold" FontSize="20"/>
                         <ComboBox  Margin="15"  >
                             <ComboBoxItem Content="category 1" />
                             <ComboBoxItem Content="category 2" />
@@ -78,8 +78,12 @@
                             <ComboBoxItem Content="category 4" />
                             <ComboBoxItem Content="category 5" />
                         </ComboBox>
-                        <TextBlock Text="first find a category" Margin="40" FontSize="20" FontWeight="Bold"/>
-                        <Button Width="100" Content="search"/>
+                        <TextBlock Text="First Find a Category" Margin="40" FontSize="20" FontWeight="Bold"/>
+                        <Button Width="57" Height="32" >
+                            <Button.Background>
+                                <ImageBrush ImageSource="search 3.png"/>
+                            </Button.Background>
+                        </Button>
 
 
 
