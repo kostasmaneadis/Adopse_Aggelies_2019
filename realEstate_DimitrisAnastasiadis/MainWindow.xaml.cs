@@ -22,25 +22,10 @@ namespace realEstate_DimitrisAnastasiadis
     /// </summary>
     public partial class MainWindow : Window
     {
-        MySqlConnection con = new MySqlConnection("server=localhost;user id=root;password=;database=aggeliestest");
         public MainWindow()
         {
             InitializeComponent();
             Main.Content = new Menu();
-        }
-
-        public void dbInsert()
-        {
-
-            con.Open();
-            MySqlCommand command = new MySqlCommand("delete from users where userId=2", con);
-            command.ExecuteNonQuery();
-            con.Close();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            dbInsert();
         }
     }
 }
