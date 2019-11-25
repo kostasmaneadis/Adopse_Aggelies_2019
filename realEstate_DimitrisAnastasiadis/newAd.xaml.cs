@@ -21,6 +21,7 @@ namespace realEstate_DimitrisAnastasiadis
         public newAd()
         {
             InitializeComponent();
+            nomosCB.ItemsSource = database.selectQuery("SELECT DISTINCT region FROM addresses");
         }
 
         private void submitButton_Click(object sender, RoutedEventArgs e)
@@ -72,6 +73,36 @@ namespace realEstate_DimitrisAnastasiadis
 
             description = descriptionTB.Text;
 
+            List<String> addressIDString;
+            addressIDString = database.selectQuery("SELECT id from addresses where region ='" + nomosCB.Text + "' and municipality ='" + dimosCB.Text + "' and address ='" + odosCB.Text + "'");
+            int addressID = int.Parse(addressIDString[0]);
+            long fullAddressID = database.insertAutoIncrement("insert into fulladdress(addressid,number) values(" + addressID + ", " + arithmosTB.Text +")");
+
+            long adID = database.insertAutoIncrement("INSERT INTO ads(dateAdded,description,categoryId,superAd,address) VALUES(now(), '" + description + "', 2, 0, " + fullAddressID + ")");
+            testBlock.Text = adID.ToString();
+
+            database.insertQuery("INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES(" + adID + ", 1, '" + sell_rent + "')");
+            database.insertQuery("INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES(" + adID + ", 2, '" + price + "')");
+            database.insertQuery("INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES(" + adID + ", 3, '" + area + "')");
+            database.insertQuery("INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES(" + adID + ", 4, '" + kind + "')");
+            database.insertQuery("INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES(" + adID + ", 6, '" + status + "')");
+            database.insertQuery("INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES(" + adID + ", 7, '" + dateBuilt + "')");
+            database.insertQuery("INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES(" + adID + ", 8, '" + bedrooms + "')");
+            database.insertQuery("INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES(" + adID + ", 9, '" + bathrooms + "')");
+            foreach (int item in floor)
+                database.insertQuery("INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES(" + adID + ", 5, '" + item + "')");
+
+        }
+
+        private void nomosCB_DropDownClosed(object sender, EventArgs e)
+        {
+            dimosCB.ItemsSource = database.selectQuery("SELECT DISTINCT municipality FROM addresses WHERE region ='" + nomosCB.Text + "'");
+            odosCB.ItemsSource = null;
+        }
+
+        private void dimosCB_DropDownClosed(object sender, EventArgs e)
+        {
+            odosCB.ItemsSource = database.selectQuery("SELECT DISTINCT address FROM addresses WHERE municipality ='" + dimosCB.Text + "'");
         }
     }
 }

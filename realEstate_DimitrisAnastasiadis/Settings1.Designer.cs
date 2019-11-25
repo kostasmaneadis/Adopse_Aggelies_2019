@@ -25,7 +25,7 @@ namespace realEstate_DimitrisAnastasiadis {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;password=;database=aggelies")]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;password=;database=aggelies;CHARSET=utf8")]
         public string connectionString {
             get {
                 return ((string)(this["connectionString"]));

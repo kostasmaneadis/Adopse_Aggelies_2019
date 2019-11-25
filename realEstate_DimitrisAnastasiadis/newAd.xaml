@@ -84,11 +84,11 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
                         <TextBlock Text="Νομός: " FontSize="18"/>
-                        <ComboBox x:Name="nomosCB" Margin="0 5 10 0"/>
+                        <ComboBox x:Name="nomosCB" Margin="0 5 10 0" DropDownClosed="nomosCB_DropDownClosed"/>
                     </StackPanel>
                     <StackPanel Grid.Column="1">
                         <TextBlock Text="Δήμος: " FontSize="18"/>
-                        <ComboBox x:Name="dimosCB" Margin="0 5 10 0"/>
+                        <ComboBox x:Name="dimosCB" Margin="0 5 10 0" DropDownClosed="dimosCB_DropDownClosed"/>
                     </StackPanel>
                     <StackPanel Grid.Column="2">
                         <TextBlock Text="Οδός: " FontSize="18"/>
@@ -117,6 +117,7 @@
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
                 <Button x:Name="submitButton" Content="Υποβολή" Margin="0 0 15 15" FontSize="20" FontWeight="Bold" Padding="2" Grid.Column="1" Click="submitButton_Click"/>
+                <TextBlock x:Name="testBlock" Grid.Column="0" Text="Test" FontSize="18"/>
             </Grid>
         </StackPanel>
     </ScrollViewer>

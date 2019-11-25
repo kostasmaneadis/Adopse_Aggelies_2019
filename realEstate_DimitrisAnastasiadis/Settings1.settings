@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="connectionString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">server=localhost;user id=root;password=;database=aggelies</Value>
+      <Value Profile="(Default)">server=localhost;user id=root;password=;database=aggelies;CHARSET=utf8</Value>
     </Setting>
   </Settings>
 </SettingsFile>
