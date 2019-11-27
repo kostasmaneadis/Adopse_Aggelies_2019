@@ -32,7 +32,7 @@
                         <Button Content="Account"/>
                         <Button Content="Help"/>
                         <Separator/>
-                        <Button x:Name="buttomLogout" Content="Lockout" Click="buttomLogout_Click"/>
+                        <Button x:Name="buttomLogout" Content="Logout" Click="buttomLogout_Click"/>
                     </StackPanel>
 
 
@@ -45,7 +45,7 @@
         <Grid Width="120" HorizontalAlignment="Left"  >
             <StackPanel>
                 <Grid>
-                    <Button Width="90" Content="Lock in" VerticalAlignment="Top" Click="Button_Click" />
+                    <Button Width="90" Content="Log in" VerticalAlignment="Top" Click="Button_Click" />
 
 
                 </Grid>
@@ -79,9 +79,9 @@
                             <ComboBoxItem Content="category 5" />
                         </ComboBox>
                         <TextBlock Text="First Find a Category" Margin="40" FontSize="20" FontWeight="Bold"/>
-                        <Button Width="57" Height="32" >
+                        <Button Width="32" Height="27"  >
                             <Button.Background>
-                                <ImageBrush ImageSource="search 3.png"/>
+                                <ImageBrush ImageSource="minimal1.png"/>
                             </Button.Background>
                         </Button>
 
