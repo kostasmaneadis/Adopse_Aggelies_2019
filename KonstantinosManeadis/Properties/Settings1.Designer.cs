@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfApp1.Properties {
+namespace KonstantinosManeadis.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,8 +25,9 @@ namespace WpfApp1.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\GitHub\\Adopse_Aggelies_2019\\WpfApp1" +
-            "\\data\\local_db.mdf;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Kostas\\source\\repos\\" +
+            "kostasmaneadis\\Adopse_Aggelies_2019\\WpfApp1\\data\\local_db.mdf;Integrated Securit" +
+            "y=True")]
         public string connection_String {
             get {
                 return ((string)(this["connection_String"]));
