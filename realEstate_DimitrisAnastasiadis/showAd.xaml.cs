@@ -14,25 +14,13 @@ using System.Windows.Shapes;
 namespace realEstate_DimitrisAnastasiadis
 {
     /// <summary>
-    /// Interaction logic for Menu.xaml
+    /// Interaction logic for showAd.xaml
     /// </summary>
-    public partial class Menu : Page
+    public partial class showAd : Page
     {
-        public Menu()
+        public showAd()
         {
             InitializeComponent();
-        }
-
-        private void newAdButton_Click(object sender, RoutedEventArgs e)
-        {
-            newAd newAdpage = new newAd();
-            NavigationService.Navigate(newAdpage);
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            showAd showAdPage = new showAd();
-            NavigationService.Navigate(showAdPage);
         }
     }
 }

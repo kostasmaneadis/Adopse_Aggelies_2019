@@ -18,6 +18,8 @@ namespace realEstate_DimitrisAnastasiadis
     /// </summary>
     public partial class newAd : Page
     {
+        public static long adID;
+
         public newAd()
         {
             InitializeComponent();
@@ -26,7 +28,13 @@ namespace realEstate_DimitrisAnastasiadis
 
         private void submitButton_Click(object sender, RoutedEventArgs e)
         {
-            String kind = "", sell_rent ="", status = "", dateBuilt, description;
+            if (dataValidated())
+                submitRealEstateAd();
+        }
+
+        private void submitRealEstateAd()
+        {
+            String kind = "", sell_rent = "", status = "", dateBuilt, description;
             float area, price;
             int bedrooms, bathrooms;
             List<int> floor = new List<int>();
@@ -76,9 +84,9 @@ namespace realEstate_DimitrisAnastasiadis
             List<String> addressIDString;
             addressIDString = database.selectQuery("SELECT id from addresses where region ='" + nomosCB.Text + "' and municipality ='" + dimosCB.Text + "' and address ='" + odosCB.Text + "'");
             int addressID = int.Parse(addressIDString[0]);
-            long fullAddressID = database.insertAutoIncrement("insert into fulladdress(addressid,number) values(" + addressID + ", " + arithmosTB.Text +")");
+            long fullAddressID = database.insertAutoIncrement("insert into fulladdress(addressid,number) values(" + addressID + ", " + arithmosTB.Text + ")");
 
-            long adID = database.insertAutoIncrement("INSERT INTO ads(dateAdded,description,categoryId,superAd,address) VALUES(now(), '" + description + "', 2, 0, " + fullAddressID + ")");
+            adID = database.insertAutoIncrement("INSERT INTO ads(dateAdded,description,categoryId,superAd,address) VALUES(now(), '" + description + "', 2, 0, " + fullAddressID + ")");
             testBlock.Text = adID.ToString();
 
             database.insertQuery("INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES(" + adID + ", 1, '" + sell_rent + "')");
@@ -86,12 +94,111 @@ namespace realEstate_DimitrisAnastasiadis
             database.insertQuery("INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES(" + adID + ", 3, '" + area + "')");
             database.insertQuery("INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES(" + adID + ", 4, '" + kind + "')");
             database.insertQuery("INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES(" + adID + ", 6, '" + status + "')");
-            database.insertQuery("INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES(" + adID + ", 7, '" + dateBuilt + "')");
+            database.insertQuery("INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES(" + adID + ", 7, STR_TO_DATE('" + dateBuilt + "', '%d/%m/%Y'))");
             database.insertQuery("INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES(" + adID + ", 8, '" + bedrooms + "')");
             database.insertQuery("INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES(" + adID + ", 9, '" + bathrooms + "')");
             foreach (int item in floor)
                 database.insertQuery("INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES(" + adID + ", 5, '" + item + "')");
+        }
 
+        private bool dataValidated()
+        {
+            bool dataValidated = true;
+
+            if (diamerismaRB.IsChecked == false && ktirioRB.IsChecked == false && mezonetaRB.IsChecked == false && monokatoikiaRB.IsChecked == false)
+            {
+                kindError.Visibility = Visibility.Visible;
+                dataValidated = false;
+            }
+            else kindError.Visibility = Visibility.Collapsed;
+
+            if (imitelesRB.IsChecked == false && ipoKataskeviRB.IsChecked == false && neodmitoRB.IsChecked == false && alloRB.IsChecked == false)
+            {
+                statusError.Visibility = Visibility.Visible;
+                dataValidated = false;
+            }
+            else statusError.Visibility = Visibility.Collapsed;
+
+            if (ipogioCHB.IsChecked == false && isogioCHB.IsChecked == false && floor1CHB.IsChecked == false && floor2CHB.IsChecked == false && floor3CHB.IsChecked == false
+                && floor4CHB.IsChecked == false && floor5CHB.IsChecked == false && floor6CHB.IsChecked == false && floor7CHB.IsChecked == false && floor8CHB.IsChecked == false)
+            {
+                orofosError.Visibility = Visibility.Visible;
+                dataValidated = false;
+            }
+            else orofosError.Visibility = Visibility.Collapsed;
+
+            try
+            {
+                float.Parse(areaTB.Text);
+                emvadonError.Visibility = Visibility.Collapsed;
+            }catch
+            {
+                emvadonError.Visibility = Visibility.Visible;
+                dataValidated = false;
+            }
+
+            if (String.IsNullOrEmpty(dateBuiltTB.Text))
+            {
+                dateBuiltError.Visibility = Visibility.Visible;
+                dataValidated = false;
+            }
+            else dateBuiltError.Visibility = Visibility.Collapsed;
+
+            try
+            {
+                int.Parse(bedroomsTB.Text);
+                bedroomsError.Visibility = Visibility.Collapsed;
+            }
+            catch
+            {
+                bedroomsError.Visibility = Visibility.Visible;
+                dataValidated = false;
+            }
+
+            try
+            {
+                int.Parse(bathroomsTB.Text);
+                bathroomsError.Visibility = Visibility.Collapsed;
+            }
+            catch
+            {
+                bathroomsError.Visibility = Visibility.Visible;
+                dataValidated = false;
+            }
+
+            try
+            {
+                float.Parse(priceTB.Text);
+                priceError.Visibility = Visibility.Collapsed;
+            }
+            catch
+            {
+                priceError.Visibility = Visibility.Visible;
+                dataValidated = false;
+            }
+
+            if (polisiRB.IsChecked == false && enikiasiRB.IsChecked == false)
+            {
+                sellRentError.Visibility = Visibility.Visible;
+                dataValidated = false;
+            }
+            else sellRentError.Visibility = Visibility.Collapsed;
+
+            if (String.IsNullOrEmpty(nomosCB.Text) || String.IsNullOrEmpty(dimosCB.Text) || String.IsNullOrEmpty(odosCB.Text) || String.IsNullOrEmpty(arithmosTB.Text))
+            {
+                areaError.Visibility = Visibility.Visible;
+                dataValidated = false;
+            }
+            else areaError.Visibility = Visibility.Collapsed;
+
+            if (String.IsNullOrWhiteSpace(descriptionTB.Text))
+            {
+                descriptionError.Visibility = Visibility.Visible;
+                dataValidated = false;
+            }
+            else descriptionError.Visibility = Visibility.Collapsed;
+
+            return dataValidated;
         }
 
         private void nomosCB_DropDownClosed(object sender, EventArgs e)

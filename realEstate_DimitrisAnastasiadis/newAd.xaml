@@ -21,6 +21,7 @@
                     <StackPanel Grid.Column="0" HorizontalAlignment="Left">
                         <!--Είδος-->
                         <TextBlock Text="Είδος:" FontWeight="Bold" FontSize="18"/>
+                        <TextBlock x:Name="kindError" Text="Επιλέξτε είδος ακινήτου" FontSize="14" Foreground="Red" Visibility="Collapsed"/>
                         <!--RadioButtons.kind-->
                         <RadioButton x:Name="diamerismaRB" FontSize="16" FontWeight="Normal" GroupName="kind" Margin="0 5 0 0">Διαμέρισμα</RadioButton>
                         <RadioButton x:Name="ktirioRB" FontSize="16" FontWeight="Normal" GroupName="kind">Κτήριο</RadioButton>
@@ -28,6 +29,7 @@
                         <RadioButton x:Name="mezonetaRB" FontSize="16" FontWeight="Normal" GroupName="kind">Μεζονέτα</RadioButton>
                         <!--Κατάσταση-->
                         <TextBlock Text="Κατάσταση:" FontWeight="Bold" FontSize="18" Margin="0 10 0 0"/>
+                        <TextBlock x:Name="statusError" Text="Επιλέξτε κατάσταση ακινήτου" FontSize="14" Foreground="Red" Visibility="Collapsed"/>
                         <!--RadioButtons.state-->
                         <RadioButton x:Name="neodmitoRB" FontSize="16" FontWeight="Normal" GroupName="state" Margin="0 5 0 0">Νεόδμητο</RadioButton>
                         <RadioButton x:Name="imitelesRB" FontSize="16" FontWeight="Normal" GroupName="state">Ημιτελές</RadioButton>
@@ -37,6 +39,7 @@
                     <StackPanel Grid.Column="1">
                         <!--Όροφος-->
                         <TextBlock Text="Όροφος:" FontWeight="Bold" FontSize="18"/>
+                        <TextBlock x:Name="orofosError" Text="Δεν συμπληρώσατε όροφο" FontSize="14" Foreground="Red" Visibility="Collapsed"/>
                         <!--checkboxes-->
                         <CheckBox x:Name="ipogioCHB" FontSize="16" FontWeight="Normal" Content="Υπόγειο" Margin="0 5 0 0"/>
                         <CheckBox x:Name="isogioCHB" FontSize="16" FontWeight="Normal" Content="Ισόγειο" Margin="0 5 0 0"/>
@@ -51,17 +54,23 @@
                     </StackPanel>
                     <StackPanel Grid.Column="2" Margin="0 0 15 0">
                         <TextBlock Text="Εμβαδόν (σε τ.μ.): " FontSize="18" Margin="0 5 0 0"/>
+                        <TextBlock x:Name="emvadonError" Text="Μη έγκυρο εμβαδό κατοικίας" FontSize="14" Foreground="Red" Visibility="Collapsed"/>
                         <TextBox x:Name="areaTB" Padding="2" FontSize="16" FontWeight="Normal" Margin="0 5 0 0"/>
                         <TextBlock Text="Έτος Κατασκευής: " FontSize="18" Margin="0 20 0 0"/>
-                        <TextBox x:Name="dateBuiltTB" Padding="2" FontSize="16" FontWeight="Normal" Margin="0 5 0 0"/>
+                        <TextBlock x:Name="dateBuiltError" Text="Εισάγετε ημερομηνία κατασκευής" FontSize="14" Foreground="Red" Visibility="Collapsed"/>
+                        <DatePicker x:Name="dateBuiltTB" Padding="2" FontSize="16" FontWeight="Normal" Margin="0 5 0 0"/>
                         <TextBlock Text="Υπνοδωμάτια: " FontSize="18" Margin="0 20 0 0"/>
+                        <TextBlock x:Name="bedroomsError" Text="Εισάγετε τα υπνοδωμάτια" FontSize="14" Foreground="Red" Visibility="Collapsed"/>
                         <TextBox x:Name="bedroomsTB" Padding="2" FontSize="16" FontWeight="Normal" Margin="0 5 0 0"/>
                         <TextBlock Text="Μπάνια: " FontSize="18" Margin="0 20 0 0"/>
+                        <TextBlock x:Name="bathroomsError" Text="Εισάγετε τα μπάνια" FontSize="14" Foreground="Red" Visibility="Collapsed"/>
                         <TextBox x:Name="bathroomsTB" Padding="2" FontSize="16" FontWeight="Normal" Margin="0 5 0 0"/>
                     </StackPanel>
                     <StackPanel Grid.Column="3">
                         <TextBlock Text="Τιμή: " FontSize="18" Margin="0 5 0 0"/>
+                        <TextBlock x:Name="priceError" Text="Εισάγετε έγκυρη τιμή" FontSize="14" Foreground="Red" Visibility="Collapsed"/>
                         <TextBox x:Name="priceTB" Padding="2" FontSize="16" FontWeight="Normal" Margin="0 5 5 0"/>
+                        <TextBlock x:Name="sellRentError" Text="Επιλέξτε:" FontSize="14" Foreground="Red" Visibility="Collapsed" Margin="0 0 0 -30"/>
                         <Grid Margin="0 20 0 0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -75,34 +84,40 @@
             </Expander>
             <!-- Τοποθεσία Ακινήτου -->
             <Expander FontSize="22" FontWeight="Bold" Header="Τοποθεσία Ακινήτου" IsExpanded="True" Margin="0 10 0 0">
-                <Grid Margin="30 15 0 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <TextBlock Text="Νομός: " FontSize="18"/>
-                        <ComboBox x:Name="nomosCB" Margin="0 5 10 0" DropDownClosed="nomosCB_DropDownClosed"/>
-                    </StackPanel>
-                    <StackPanel Grid.Column="1">
-                        <TextBlock Text="Δήμος: " FontSize="18"/>
-                        <ComboBox x:Name="dimosCB" Margin="0 5 10 0" DropDownClosed="dimosCB_DropDownClosed"/>
-                    </StackPanel>
-                    <StackPanel Grid.Column="2">
-                        <TextBlock Text="Οδός: " FontSize="18"/>
-                        <ComboBox x:Name="odosCB" Margin="0 5 10 0"/>
-                    </StackPanel>
-                    <StackPanel Grid.Column="3">
-                        <TextBlock Text="Αριθμός: " FontSize="18"/>
-                        <TextBox x:Name="arithmosTB" TextAlignment="Right" Padding="2" FontSize="16" FontWeight="Normal" Margin="0 5 10 0"/>
-                    </StackPanel>
-                </Grid>
+                <StackPanel>
+                    <TextBlock x:Name="areaError" Text="Δεν συμπληρώθηκε η τοποθεσία" FontSize="14" Foreground="Red" Visibility="Collapsed" Margin="30 0 0 -30"/>
+                    <Grid Margin="30 15 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="Νομός: " FontSize="18"/>
+                            <ComboBox x:Name="nomosCB" Margin="0 5 10 0" DropDownClosed="nomosCB_DropDownClosed"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="Δήμος: " FontSize="18"/>
+                            <ComboBox x:Name="dimosCB" Margin="0 5 10 0" DropDownClosed="dimosCB_DropDownClosed"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2">
+                            <TextBlock Text="Οδός: " FontSize="18"/>
+                            <ComboBox x:Name="odosCB" Margin="0 5 10 0"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="3">
+                            <TextBlock Text="Αριθμός: " FontSize="18"/>
+                            <TextBox x:Name="arithmosTB" TextAlignment="Right" Padding="2" FontSize="16" FontWeight="Normal" Margin="0 5 10 0"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
             </Expander>
             <!--Περιγραφή-->
             <Expander FontSize="22" FontWeight="Bold" Header="Περιγραφή" IsExpanded="True" Margin="0 10 0 0">
-                <TextBox x:Name="descriptionTB" Height="200" Margin="30 15 15 15" FontWeight="Normal" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
+                <StackPanel>
+                    <TextBlock x:Name="descriptionError" Text="Δεν συμπληρώθηκε η περιγραφή" FontSize="14" Foreground="Red" Visibility="Collapsed" Margin="30 0 0 0"/>
+                    <TextBox x:Name="descriptionTB" Height="200" Margin="30 15 15 15" FontWeight="Normal" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
+                </StackPanel>
             </Expander>
             <!--Φωτογραφίες-->
             <Expander FontSize="22" FontWeight="Bold" Header="Φωτογραφίες" IsExpanded="True" Margin="0 10 0 0">
