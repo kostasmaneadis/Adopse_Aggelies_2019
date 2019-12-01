@@ -7,10 +7,10 @@
         mc:Ignorable="d"    
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Title="ΑΔΟΠΣΕ 2019/20" Height="1080" Width="1920"
-        WindowState="Maximized"
+        WindowState="Maximized"   
         >
-   
-    <Grid Name="AppGrid">
+    <Grid Name="AppGrid" Background="#173F5F">
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="10*"></ColumnDefinition>
@@ -19,7 +19,7 @@
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="10*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Image Source="ads-logo.png" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Height="145" VerticalAlignment="Center" />
+        <Image Source="images/ads-logo.png" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Height="145" VerticalAlignment="Center" />
         <Grid Grid.Column="1" Grid.Row="0">
             <TextBlock Text="YOUR ADS"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontFamily="Segoe UI Black" Foreground="White" />
         </Grid>
