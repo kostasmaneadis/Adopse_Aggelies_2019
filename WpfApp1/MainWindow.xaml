@@ -46,7 +46,7 @@
                 <TextBlock Text="Title of Content" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" />
             </Border>
             <Border  Background="DarkGray" Grid.Row="1">
-                <Frame Name="MainContentFrame">
+                <Frame Name="MainContentFrame" NavigationUIVisibility="Hidden">
 
                 </Frame>
             </Border>
