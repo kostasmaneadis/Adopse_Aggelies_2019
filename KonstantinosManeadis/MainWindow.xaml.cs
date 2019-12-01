@@ -26,7 +26,7 @@ namespace KonstantinosManeadis
         {
             InitializeComponent();
         }
-
+        private String User_Role = "Guest";
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             //Diagnostics.Debug.WriteLine(sender.ToString(), "username: " + username_textbox.Text);
@@ -47,6 +47,7 @@ namespace KonstantinosManeadis
                         if (dbpass == password_textbox.Password)
                         {
                             System.Diagnostics.Debug.WriteLine(sender.ToString(), "password match with given.. we continue the login process");
+                            User_Role="User";
                         }
                         else
                         {
@@ -98,7 +99,19 @@ namespace KonstantinosManeadis
 
 
         }
-
+        private string IsLoggedIn()
+        {
+            string status = "No";
+            if (User_Role != "Guest")
+            {
+                status = "Yes";
+            }
+            return status;
+        }
+        private string GetUserRole()
+        {
+            return User_Role;
+        }
         private void username_textbox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
