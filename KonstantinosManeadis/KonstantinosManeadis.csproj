@@ -8,10 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="1.2.0" />
     <PackageReference Include="MaterialDesignThemes" Version="2.6.0" />
     <PackageReference Include="MySql.Data" Version="8.0.18" />
     <PackageReference Include="MySqlClient" Version="5.4.2" />
     <PackageReference Include="System.Data.SqlClient" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\realEstate_DimitrisAnastasiadis\realEstate_DimitrisAnastasiadis.csproj" />
   </ItemGroup>
 
   <ItemGroup>

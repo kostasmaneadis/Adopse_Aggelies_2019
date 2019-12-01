@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -18,11 +16,11 @@ using System.Data;
 namespace KonstantinosManeadis
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Login_page.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Login_page : Page
     {
-        public MainWindow()
+        public Login_page()
         {
             InitializeComponent();
         }
@@ -34,7 +32,7 @@ namespace KonstantinosManeadis
             try
             {
                 SqlConnection cn_connection = DB_Connection;
-                SqlCommand cmd_Command = new SqlCommand("select password from [user_table] where username=@username" , cn_connection);
+                SqlCommand cmd_Command = new SqlCommand("select password from [user_table] where username=@username", cn_connection);
 
                 //SqlCommand cmd_Command = new SqlCommand("insert into user_table(username, password) values(@username , @password)" , cn_connection);
                 string username = username_textbox.Text;
@@ -47,7 +45,7 @@ namespace KonstantinosManeadis
                         if (dbpass == password_textbox.Password)
                         {
                             System.Diagnostics.Debug.WriteLine(sender.ToString(), "password match with given.. we continue the login process");
-                            User_Role="User";
+                            User_Role = "User";
                         }
                         else
                         {
@@ -93,7 +91,7 @@ namespace KonstantinosManeadis
                 cmd_Command.ExecuteNonQuery();
             }
             catch (Exception ex)
-            { 
+            {
                 MessageBox.Show(ex.Message);
             }
 
