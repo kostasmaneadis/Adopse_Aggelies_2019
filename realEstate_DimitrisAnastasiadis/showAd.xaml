@@ -19,8 +19,8 @@
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <TextBlock Text="Μονοκατοικία" FontWeight="DemiBold"  FontSize="20"/>
-                <TextBlock Text="θεσσαλονίκη" FontSize="16"/>
+                <TextBlock x:Name="kind" Text="Μονοκατοικία" FontWeight="DemiBold"  FontSize="20"/>
+                <TextBlock x:Name="location" Text="θεσσαλονίκη" FontSize="16"/>
             </StackPanel>
             <StackPanel Grid.Column="2" Orientation="Horizontal">
                 <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
@@ -30,28 +30,38 @@
                 <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
             </StackPanel>
             <StackPanel Grid.Column="2">
-                <TextBlock Text="300 τ.μ." HorizontalAlignment="Center" FontSize="20" FontWeight="DemiBold" Margin="0 0 5 0"/>
-                <TextBlock Text="3000$/ τ.μ." FontSize="14" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="areaTB" Text="300 τ.μ." HorizontalAlignment="Center" FontSize="20" FontWeight="DemiBold" Margin="0 0 5 0"/>
+                <TextBlock x:Name="costPerTM" Text="3000$/ τ.μ." FontSize="14" HorizontalAlignment="Center"/>
             </StackPanel>
             <StackPanel Grid.Column="4" Orientation="Horizontal">
                 <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
             </StackPanel>
             <StackPanel Grid.Column="3">
-                <TextBlock Text="5" HorizontalAlignment="Center" FontSize="20" FontWeight="DemiBold" Margin="0 0 5 0"/>
+                <TextBlock x:Name="bedrooms"  Text="5" HorizontalAlignment="Center" FontSize="20" FontWeight="DemiBold" Margin="0 0 5 0"/>
                 <TextBlock Text="Υπνοδωμάτια" FontSize="14" HorizontalAlignment="Center"/>
             </StackPanel>
             <StackPanel Grid.Column="4">
-                <TextBlock Text="3" HorizontalAlignment="Center" FontSize="20" FontWeight="DemiBold" Margin="0 0 5 0"/>
+                <TextBlock x:Name="bathrooms" Text="3" HorizontalAlignment="Center" FontSize="20" FontWeight="DemiBold" Margin="0 0 5 0"/>
                 <TextBlock Text="Μπάνια" FontSize="14" HorizontalAlignment="Center"/>
             </StackPanel>
         </Grid>
-        <DockPanel>
-            <Label DockPanel.Dock="Left" Content="Χαρακτηριστικά" FontWeight="DemiBold" FontSize="16" Margin="0 5"/>
-            <Separator Margin="3 4 0 0"/>
-        </DockPanel>
-        <DockPanel>
-            <Label DockPanel.Dock="Left" Content="Περιγραφή" FontWeight="DemiBold" FontSize="16" Margin="0 5"/>
-            <Separator Margin="3 4 0 0"/>
-        </DockPanel>
+        <StackPanel>
+            <DockPanel>
+                <Label DockPanel.Dock="Left" Content="Χαρακτηριστικά" FontWeight="DemiBold" FontSize="16" Margin="0 5"/>
+                <Separator Margin="3 4 0 0"/>
+            </DockPanel>
+            <StackPanel x:Name="Features" Margin="40 10">
+                <TextBlock x:Name="dateBuiltTB" Text="Ημερομηνία Κατασκευής: " Margin="0 0 0 3"/>
+                <TextBlock x:Name="statusTB" Text="Κατάσταση: " Margin="0 0 0 3"/>
+                <TextBlock x:Name="floorsTB" Text="Όροφος: " Margin="0 0 0 3"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel>
+            <DockPanel>
+                <Label DockPanel.Dock="Left" Content="Περιγραφή" FontWeight="DemiBold" FontSize="16" Margin="0 5"/>
+                <Separator Margin="3 4 0 0"/>
+            </DockPanel>
+            <TextBlock x:Name="descriptionTB" Text="" TextWrapping="Wrap" Margin="40 10 "/>
+        </StackPanel>
     </StackPanel>
 </Page>
