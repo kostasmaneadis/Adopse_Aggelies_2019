@@ -1,0 +1,90 @@
+﻿CREATE TABLE `ads` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dateAdded` date NOT NULL,
+  `description` varchar(2000) DEFAULT NULL,
+  `superAd` tinyint(1) NOT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `automoto` (
+  `automotoid` int(11) NOT NULL,
+  `kind` varchar(50) NOT NULL,
+  `make` varchar(10) NOT NULL,
+  `mode` varchar(10) NOT NULL,
+  `color` varchar(10) NOT NULL,
+  `damages` varchar(10) DEFAULT NULL,
+  `cubitCapacity` int(50) DEFAULT NULL,
+  `power` int(50) DEFAULT NULL,
+  `fuel` varchar(10) NOT NULL,
+  `firstRegistration` date DEFAULT NULL,
+  `features` varchar(50) NOT NULL,
+  `price` float DEFAULT NULL,
+  `new` bit(1) DEFAULT NULL,
+  PRIMARY KEY (`automotoid`),
+  CONSTRAINT `automoto_ibfk_1` FOREIGN KEY (`automotoid`) REFERENCES `ads` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `health` (
+  `healthid` int(11) NOT NULL,
+  `category` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`healthid`),
+  CONSTRAINT `health_ibfk_1` FOREIGN KEY (`healthid`) REFERENCES `ads` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `jobs` (
+  `jobsid` int(11) NOT NULL,
+  `category` varchar(50) NOT NULL,
+  `full_part_time` varchar(10) DEFAULT NULL,
+  `jobs_employers` varchar(50) NOT NULL,
+  PRIMARY KEY (`jobsid`),
+  CONSTRAINT `jobs_ibfk_1` FOREIGN KEY (`jobsid`) REFERENCES `ads` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `photos` (
+  `photoid` int(11) NOT NULL,
+  `adsId` int(11) NOT NULL,
+  `photo` blob,
+  PRIMARY KEY (`photoid`),
+  KEY `adsId` (`adsId`),
+  CONSTRAINT `photos_ibfk_1` FOREIGN KEY (`adsId`) REFERENCES `ads` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `property` (
+  `propertyid` int(11) NOT NULL,
+  `kind` varchar(50) NOT NULL,
+  `buy_rent` varchar(10) NOT NULL,
+  `area` float DEFAULT NULL,
+  `dateBuil` date DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `new` bit(1) DEFAULT NULL,
+  PRIMARY KEY (`propertyid`),
+  CONSTRAINT `property_ibfk_1` FOREIGN KEY (`propertyid`) REFERENCES `ads` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `subcategories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `catid` int(11) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `sub2` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `catid` (`catid`),
+  CONSTRAINT `subcategories_ibfk_1` FOREIGN KEY (`catid`) REFERENCES `categories` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=195 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `surname` varchar(50) NOT NULL,
+  `fathersName` varchar(50) DEFAULT NULL,
+  `born` date DEFAULT NULL,
+  `role` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

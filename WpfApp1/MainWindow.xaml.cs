@@ -28,49 +28,15 @@ namespace WpfApp1
         {
             //InitializeComponent();
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void Login_Button_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(sender.ToString(), "Button: ");
-        }
-        public static SqlConnection DB_Connection
-        {
-            get
-            {
-
-                string cn_String = Properties.Settings1.Default.connection_String;
-
-                SqlConnection cn_connection = new SqlConnection(cn_String);
-
-                if (cn_connection.State != ConnectionState.Open) cn_connection.Open();
-
-
-                return cn_connection;
-
-            }
+            MainContentFrame.Content = new KonstantinosManeadis.Login_page();
         }
 
-        private void Insert_User(object sender, RoutedEventArgs e)
+        private void Register_Button_Click(object sender, RoutedEventArgs e)
         {
-           
-                try
-                {
-                SqlConnection cn_connection = DB_Connection;
-
-
-                
-
-                SqlCommand cmd_Command = new SqlCommand("insert into user_table(username, password) values('kostas','123')", cn_connection);
-
-                cmd_Command.ExecuteNonQuery();
-                
-            }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            
+            MainContentFrame.Content = new KonstantinosManeadis.Register_page();
         }
-
-
     }
 }

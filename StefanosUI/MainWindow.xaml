@@ -5,25 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StefanosUI"
         mc:Ignorable="d"
-         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="ADS" Height="1000" Width="1000">
-   
-
+Title="ADS" Height="1000" Width="1000">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="225*"/>
-            <ColumnDefinition Width="280*"/>
-            <ColumnDefinition Width="487*"/>
-        </Grid.ColumnDefinitions>
-        <Grid Height="70" VerticalAlignment="Top" Grid.ColumnSpan="3" >
-            <TextBlock Text="YOUR ADS"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontFamily="Segoe UI Black" Cursor="None" Foreground="White" />
-            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
+
+        
+        
+        <Grid Name="AppGrid">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="10*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="10*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image Source="ads-logo.png" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Height="145" VerticalAlignment="Center" />
+            <Grid Grid.Column="1" Grid.Row="0">
+                <TextBlock Text="YOUR ADS"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontFamily="Segoe UI Black" Foreground="White" />
+            </Grid>
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right"  Grid.Row="0" Grid.Column="1">
                 <TextBlock Text="settings" VerticalAlignment="Center" FontSize="30" />
                 <materialDesign:PopupBox Margin="10" HorizontalAlignment="Left" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
                     <StackPanel Width="150">
@@ -32,69 +40,70 @@
                         <Separator/>
                         <Button x:Name="buttomLogout" Content="Logout" Click="buttomLogout_Click"/>
                     </StackPanel>
-
-
                 </materialDesign:PopupBox>
-
-
-
             </StackPanel>
-        </Grid>
-        <Grid Width="120" HorizontalAlignment="Left"  >
-            <StackPanel>
-                <Grid>
-                    <Button Width="90" Content="Log in" VerticalAlignment="Top" Click="Button_Click" />
+            <Grid Grid.Row="1" Grid.Column="0">
+                <StackPanel>
+                    <Button Width="250" Content="Jobs"  Height="75" FontSize="20" VerticalAlignment="Top"/>
+                    <Separator Width="150"/>
+                    <Button Width="250" Content="Apartments"  Height="75" FontSize="20"/>
+                    <Separator Width="150"/>
+                    <Button Width="250" Content="Other"  Height="75" FontSize="20" />
+                    <Separator Width="150"/>
+                    <Button Width="250" Content="Login" Height="55" FontSize="20" VerticalAlignment="Bottom"/>
+                    <Separator Width="150"/>
+                    <Button Width="250" Content="Sign up" Height="55" FontSize="20" VerticalAlignment="Bottom"/>
+                </StackPanel>
+            </Grid>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="20,256,20,255">
+                <StackPanel Orientation="Horizontal"/>
+                <TextBlock Width="669" Text="  FIND EVERYTHING YOU WANT:" Margin="50" FontWeight="Bold" FontStyle="Italic" FontSize="40" Foreground="White" FontFamily="Segoe UI Black" />
+
+                <GroupBox>
+                    <Border Background="White" Margin="50 60" CornerRadius="5">
+                        <StackPanel Orientation="Horizontal" Margin="25">
+                            <TextBlock Text="Category" HorizontalAlignment="Center" Margin="40" FontWeight="Bold" FontSize="20"/>
+                            <ComboBox  Margin="15"  >
+                                <ComboBoxItem Content="category 1" />
+                                <ComboBoxItem Content="category 2" />
+                                <ComboBoxItem Content="category 3" />
+                                <ComboBoxItem Content="category 4" />
+                                <ComboBoxItem Content="category 5" />
+                            </ComboBox>
+                            <TextBlock Text="Subcategory" Margin="40" FontWeight="Bold" FontSize="20"/>
+                            <ComboBox  Margin="15"  >
+                                <ComboBoxItem Content="category 1" />
+                                <ComboBoxItem Content="category 2" />
+                                <ComboBoxItem Content="category 3" />
+                                <ComboBoxItem Content="category 4" />
+                                <ComboBoxItem Content="category 5" />
+                            </ComboBox>
+                            <TextBlock Text="First Find a Category" Margin="40" FontSize="20" FontWeight="Bold"/>
+                            <Button Width="32" Height="27"  >
+
+                            </Button>
 
 
-                </Grid>
-                <Separator Width="150"/>
-                <Button Width="90" Content="Sign up"/>
+
+
+
+                        </StackPanel>
+                    </Border>
+                </GroupBox>
             </StackPanel>
-        </Grid>
-
-
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="20,256,20,255">
-            <StackPanel Orientation="Horizontal"/>
-            <TextBlock Width="669" Text="  FIND EVERYTHING YOU WANT:" Margin="50" FontWeight="Bold" FontStyle="Italic" FontSize="40" Foreground="White" FontFamily="Segoe UI Black" />
-
-            <GroupBox>
-                <Border Background="White" Margin="50 60" CornerRadius="5">
-                    <StackPanel Orientation="Horizontal" Margin="25">
-                        <TextBlock Text="Category" HorizontalAlignment="Center" Margin="40" FontWeight="Bold" FontSize="20"/>
-                        <ComboBox  Margin="15"  >
-                            <ComboBoxItem Content="category 1" />
-                            <ComboBoxItem Content="category 2" />
-                            <ComboBoxItem Content="category 3" />
-                            <ComboBoxItem Content="category 4" />
-                            <ComboBoxItem Content="category 5" />
-                        </ComboBox>
-                        <TextBlock Text="Subcategory" Margin="40" FontWeight="Bold" FontSize="20"/>
-                        <ComboBox  Margin="15"  >
-                            <ComboBoxItem Content="category 1" />
-                            <ComboBoxItem Content="category 2" />
-                            <ComboBoxItem Content="category 3" />
-                            <ComboBoxItem Content="category 4" />
-                            <ComboBoxItem Content="category 5" />
-                        </ComboBox>
-                        <TextBlock Text="First Find a Category" Margin="40" FontSize="20" FontWeight="Bold"/>
-                        <Button Width="32" Height="27"  >
-                            
-                        </Button>
-
-
-
-
-
-                    </StackPanel>
+            
+            <Grid Grid.Row="1" Grid.Column="1" Name="MainContentGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="11*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border  Background="White" Grid.Row="0">
+                    <TextBlock Text="Title of Content" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" />
                 </Border>
-            </GroupBox>
-        </StackPanel>
-       
-
-
-
-
-
-
-    </Grid>
+                <Border  Background="DarkGray" Grid.Row="1">
+                    <TextBlock Text="Main Content" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" />
+                </Border>
+            </Grid>
+        </Grid>
+        </Grid>
 </Window>

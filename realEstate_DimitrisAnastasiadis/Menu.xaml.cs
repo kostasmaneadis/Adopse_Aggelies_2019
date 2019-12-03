@@ -28,5 +28,11 @@ namespace realEstate_DimitrisAnastasiadis
             newAd newAdpage = new newAd();
             NavigationService.Navigate(newAdpage);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            showAd showAdPage = new showAd();
+            NavigationService.Navigate(showAdPage);
+        }
     }
 }

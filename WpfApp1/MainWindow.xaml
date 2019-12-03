@@ -4,23 +4,52 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        Background="{DynamicResource MaterialDesignPaper}"
+        mc:Ignorable="d"    
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Title="ΑΔΟΠΣΕ 2019/20" Height="1080" Width="1920"
+        WindowState="Maximized"   
         >
-    <Grid>
-
+    <Grid Name="AppGrid" Background="#173F5F">
+        
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition />
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="10*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-            <Button Height="40" Click="Insert_User">Test</Button>
-            <Button Height="40">Test2</Button>
-        </StackPanel>
-            <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="178,95,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <Button Width="70" Height="20" Click="Button_Click">Hello World</Button>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Source="images/ads-logo.png" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Height="145" VerticalAlignment="Center" />
+        <Grid Grid.Column="1" Grid.Row="0">
+            <TextBlock Text="YOUR ADS"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontFamily="Segoe UI Black" Foreground="White" />
+        </Grid>
+        
+        <Grid Grid.Row="1" Grid.Column="0">
+            <StackPanel>
+                <Button Width="250" Content="Jobs"  Height="75" FontSize="20" VerticalAlignment="Top"/>
+                <Separator Width="150"/>
+                <Button Width="250" Content="Apartments"  Height="75" FontSize="20"/>
+                <Separator Width="150"/>
+                <Button Width="250" Content="Other"  Height="75" FontSize="20" />
+                <Separator Width="150"/>
+                <Button Width="250" Content="Login" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="Login_Button_Click" />
+                <Separator Width="150"/>
+                <Button Width="250" Content="Sign up" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="Register_Button_Click" />
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1" Name="MainContentGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="11*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border  Background="White" Grid.Row="0">
+                <TextBlock Text="Title of Content" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" />
+            </Border>
+            <Border  Background="DarkGray" Grid.Row="1">
+                <Frame Name="MainContentFrame" NavigationUIVisibility="Hidden">
 
+                </Frame>
+            </Border>
+        </Grid>
     </Grid>
 </Window>
