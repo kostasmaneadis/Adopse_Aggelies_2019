@@ -5,17 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KonstantinosManeadis"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Login" Height="500" Width="350" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize"
          
         >
-    <Grid>
-        <Button Content="Login" HorizontalAlignment="Left" Margin="225,307,0,0" VerticalAlignment="Top" Height="40" Width="130" Click="Login_Click"/>
-        <Button Content="Register" HorizontalAlignment="Left" Margin="431,307,0,0" VerticalAlignment="Top" Height="40" Width="130" Click="Register_Click"/>
-        <Label Content="Or" HorizontalAlignment="Left" Margin="379,327,0,0" VerticalAlignment="Top" Height="46" Width="52"/>
-        <TextBox Name="username_textbox" HorizontalAlignment="Left" Margin="225,102,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="336" Height="50" TextChanged="username_textbox_TextChanged"/>
-        <PasswordBox Name="password_textbox" HorizontalAlignment="Left" Margin="233,244,0,0" VerticalAlignment="Top" Width="336" Height="27"/>
-        <Label Content="Username" HorizontalAlignment="Left" Margin="225,97,0,0" VerticalAlignment="Top" Width="84"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="225,197,0,0" VerticalAlignment="Top" Width="84"/>
+    <Grid >
+
+        <Rectangle Height="280" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Blue"/>
+                    <GradientStop Color="#FF34268A" Offset="1"/>
+                    <GradientStop Color="#FF2281D1" Offset="0.5" />
+
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        
+        
+        <Rectangle Width="280" Height="240" Fill="White" VerticalAlignment="Bottom" Margin="0,100" />
+        
+        <Grid Width="280" Height="240" VerticalAlignment="Bottom" Margin="0,100" >
+            <TextBlock Text="LOGIN" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="Gray" FontSize="18"/>
+
+            <StackPanel VerticalAlignment="Center" Margin="10">
+
+                <TextBox x:Name="username_textbox"  materialDesign:HintAssist.Hint="EMAIL" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0,10" />
+                <PasswordBox x:Name="password_textbox" materialDesign:HintAssist.Hint="PASSWORD" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,10"  />
+
+            </StackPanel>
+
+        </Grid>
+        <Button Content="Login" VerticalAlignment="Bottom" HorizontalAlignment="Left"  Margin="60,0,0,86" Width="100" Height="40" Click="Login_Click"/>
+        <Button Content="Register" HorizontalAlignment="Right" Margin="0,0,60,86" VerticalAlignment="Bottom" Height="40" Width="100" Click="Register_Click"/>
 
 
     </Grid>

@@ -101,20 +101,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="ads-logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="bg1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="search2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="search 3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="minimal1.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

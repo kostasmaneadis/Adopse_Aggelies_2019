@@ -13,9 +13,7 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="ADS" Height="1000" Width="1000">
-    <Window.Background>
-        <ImageBrush ImageSource="bg1.jpg"/>
-    </Window.Background>
+   
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -80,9 +78,7 @@
                         </ComboBox>
                         <TextBlock Text="First Find a Category" Margin="40" FontSize="20" FontWeight="Bold"/>
                         <Button Width="32" Height="27"  >
-                            <Button.Background>
-                                <ImageBrush ImageSource="minimal1.png"/>
-                            </Button.Background>
+                            
                         </Button>
 
 
@@ -93,7 +89,7 @@
                 </Border>
             </GroupBox>
         </StackPanel>
-        <Image Source="ads-logo.png" Grid.Column="2" HorizontalAlignment="Left" Height="145" Margin="220,120,-33,0" VerticalAlignment="Top" Width="300"/>
+       
 
 
 
