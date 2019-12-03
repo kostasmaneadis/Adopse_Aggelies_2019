@@ -21,7 +21,7 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        
+        <Image Source="login1.png" Width="100" VerticalAlignment="Top" Height="60" Margin="125,20,125,0" />
         
         <Rectangle Width="280" Height="240" Fill="White" VerticalAlignment="Bottom" Margin="0,100" />
         
