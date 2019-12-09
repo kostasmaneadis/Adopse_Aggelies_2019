@@ -4,52 +4,90 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
-        mc:Ignorable="d"    
+        mc:Ignorable="d"  
+        xmlns:materialDesing="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Title="ΑΔΟΠΣΕ 2019/20" Height="1080" Width="1920"
+        Title="ΑΔΟΠΣΕ 2019/20" Height="600" Width="1080"
         WindowState="Maximized"   
         >
-    <Grid Name="AppGrid" Background="#173F5F">
+    <Window.Resources>
+        <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameWorkElement)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameWorkElement)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="70"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid Background="LightGray">
+
+        <Grid Height="70" VerticalAlignment="Top" Background="#FF2B8985">
+            <TextBlock Text="YOUR ADS" HorizontalAlignment="Center" FontSize="22" />
+            
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="SETTINGS" HorizontalAlignment="Right" FontSize="18"/>
+                <materialDesing:PopupBox HorizontalAlignment="Right" Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
+                    <StackPanel Width="150">
+                        <Button Content="Account"/>
+                        <Button Content="Help"/>
+                        <Separator/>
+                        <Button x:Name="buttomLogout" Content="Logout" Click="ButtomLogout_Click"/>
+
+                    </StackPanel>   
+                </materialDesing:PopupBox>
+            </StackPanel>
         
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
-            <ColumnDefinition Width="10*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="10*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Image Source="images/ads-logo.png" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Height="145" VerticalAlignment="Center" />
-        <Grid Grid.Column="1" Grid.Row="0">
-            <TextBlock Text="YOUR ADS"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontFamily="Segoe UI Black" Foreground="White" />
+        
         </Grid>
-        
-        <Grid Grid.Row="1" Grid.Column="0">
+        <Grid x:Name="GridMenu" Width="50" HorizontalAlignment="Left" Background="#FF2B8985">
             <StackPanel>
+                <Grid Height="150" Background="White">
+                    <Button x:Name="ButtonCloseMenu"  Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="ButtonCloseMenu_Click">
+                        <materialDesing:PackIcon Foreground="#FF2B8985" Kind="ArrowLeft" Width="25" Height="25"/>
+                    </Button>
+                    <Button x:Name="ButtonOpenMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenMenu_Click">
+                        <materialDesing:PackIcon Foreground="#FF2B8985" Kind="Menu" Width="25" Height="25"/>
+                    </Button>
+
+                </Grid>
+                <ListView Background="#FF2B8985">
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesing:PackIcon Kind="ViewDashboard" Width="25" Height="25" VerticalAlignment="Top"/>
+                            <TextBlock Text="home" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                        
+                    </ListViewItem>
+                </ListView>
                 <Button Width="250" Content="Jobs"  Height="75" FontSize="20" VerticalAlignment="Top"/>
                 <Separator Width="150"/>
                 <Button Width="250" Content="Apartments"  Height="75" FontSize="20"/>
                 <Separator Width="150"/>
                 <Button Width="250" Content="Other"  Height="75" FontSize="20" />
                 <Separator Width="150"/>
-                <Button Width="250" Content="Login" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="Login_Button_Click" />
+                <Button Width="250" Content="Login" Height="55" FontSize="20" VerticalAlignment="Bottom"  />
                 <Separator Width="150"/>
-                <Button Width="250" Content="Sign up" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="Register_Button_Click" />
-            </StackPanel>
+                <Button Width="250" Content="Sign up" Height="55" FontSize="20" VerticalAlignment="Bottom" />
+                
+            </StackPanel>  
+            
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="1" Name="MainContentGrid">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"></RowDefinition>
-                <RowDefinition Height="11*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Border  Background="White" Grid.Row="0">
-                <TextBlock Text="Title of Content" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" />
-            </Border>
-            <Border  Background="DarkGray" Grid.Row="1">
-                <Frame Name="MainContentFrame" NavigationUIVisibility="Hidden">
 
-                </Frame>
-            </Border>
-        </Grid>
     </Grid>
+    
+  
 </Window>

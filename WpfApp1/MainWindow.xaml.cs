@@ -28,15 +28,22 @@ namespace WpfApp1
         {
             //InitializeComponent();
         }
-
-        private void Login_Button_Click(object sender, RoutedEventArgs e)
+        private void ButtomLogout_Click(object sender, RoutedEventArgs e)
         {
-            MainContentFrame.Content = new KonstantinosManeadis.Login_page();
+            Application.Current.Shutdown();
         }
 
-        private void Register_Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
         {
-            MainContentFrame.Content = new KonstantinosManeadis.Register_page();
+            ButtonOpenMenu.Visibility = Visibility.Collapsed;
+            ButtonCloseMenu.Visibility = Visibility.Visible;
+
+        }
+
+        private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonOpenMenu.Visibility = Visibility.Visible;
+            ButtonCloseMenu.Visibility = Visibility.Collapsed;
         }
     }
 }
