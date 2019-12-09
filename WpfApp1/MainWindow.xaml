@@ -73,11 +73,11 @@
                         
                     </ListViewItem>
                 </ListView>
-                <Button Width="250" Content="Jobs"  Height="75" FontSize="20" VerticalAlignment="Top"/>
+                <Button Width="250" Content="Jobs"  Height="55" FontSize="20" VerticalAlignment="Top"/>
                 <Separator Width="150"/>
-                <Button Width="250" Content="Apartments"  Height="75" FontSize="20"/>
+                <Button Width="250" Content="Apartments"  Height="55" FontSize="20"/>
                 <Separator Width="150"/>
-                <Button Width="250" Content="Other"  Height="75" FontSize="20" />
+                <Button Width="250" Content="Other"  Height="55" FontSize="20" />
                 <Separator Width="150"/>
                 <Button Width="250" Content="Login" Height="55" FontSize="20" VerticalAlignment="Bottom"  />
                 <Separator Width="150"/>
