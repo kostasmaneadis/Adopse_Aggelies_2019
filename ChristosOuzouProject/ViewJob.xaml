@@ -13,31 +13,35 @@
             <TabControl VerticalAlignment="Top" Margin="0,0,0,0">
                 <TabItem Header="Περιγραφή" Width="75">
                     <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="113*"/>
+                            <ColumnDefinition Width="787*"/>
+                        </Grid.ColumnDefinitions>
 
-                        <Image x:Name="jobadprevImg" HorizontalAlignment="Left" Height="120" Margin="16,14,0,0" VerticalAlignment="Top" Width="120"/>
-                        <Label Content="Περιοχή - Διέυθυνση:" HorizontalAlignment="Left" Margin="150,18,0,0" VerticalAlignment="Top"/>
-                        <Line></Line>
-                        <Label Content="Αμοιβή:" HorizontalAlignment="Left" Margin="150,76,0,0" VerticalAlignment="Top"/>
+                        <Image x:Name="jobadprevImg" HorizontalAlignment="Left" Height="120" Margin="16,14,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+                        <Label Content="Περιοχή - Διέυθυνση:" HorizontalAlignment="Left" Margin="37,18,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <Line Grid.ColumnSpan="2"></Line>
+                        <Label Content="Αμοιβή:" HorizontalAlignment="Left" Margin="37,76,0,0" VerticalAlignment="Top" Grid.Column="1"/>
 
-                        <Label x:Name="jobAddressL" Content="Label" HorizontalAlignment="Left" Margin="298,15,0,0" VerticalAlignment="Top" Width="221"/>
+                        <Label x:Name="jobAddressL" Content="Label" HorizontalAlignment="Left" Margin="185,15,0,0" VerticalAlignment="Top" Width="221" Grid.Column="1"/>
 
-                        <Label x:Name="jobKindL"  Content="Label" HorizontalAlignment="Left" Margin="298,44,0,0" VerticalAlignment="Top" Width="221"/>
+                        <Label x:Name="jobKindL"  Content="Label" HorizontalAlignment="Left" Margin="185,44,0,0" VerticalAlignment="Top" Width="221" Grid.Column="1"/>
 
-                        <Label Content="Ειδικότητα:" HorizontalAlignment="Left" Margin="150,47,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Ειδικότητα:" HorizontalAlignment="Left" Margin="37,47,0,0" VerticalAlignment="Top" Grid.Column="1"/>
 
-                        <Label x:Name="jobSalaryL"  Content="Label" HorizontalAlignment="Left" Margin="298,73,0,0" VerticalAlignment="Top" Width="221"/>
-                        <Rectangle HorizontalAlignment="Left" Height="1" Margin="158,44,0,0" Stroke="#FFA2A2A2" VerticalAlignment="Top" Width="360" Fill="#FFA2A2A2"/>
-                        <Rectangle HorizontalAlignment="Left" Height="1" Margin="158,73,0,0" Stroke="#FFA2A2A2" VerticalAlignment="Top" Width="360" Fill="#FFA2A2A2"/>
-                        <Rectangle HorizontalAlignment="Left" Height="1" Margin="158,99,0,0" Stroke="#FFA2A2A2" VerticalAlignment="Top" Width="360" Fill="#FFA2A2A2"/>
+                        <Label x:Name="jobSalaryL"  Content="Label" HorizontalAlignment="Left" Margin="185,73,0,0" VerticalAlignment="Top" Width="221" Grid.Column="1"/>
+                        <Rectangle HorizontalAlignment="Left" Height="1" Margin="45,44,0,0" Stroke="#FFA2A2A2" VerticalAlignment="Top" Width="360" Fill="#FFA2A2A2" Grid.Column="1"/>
+                        <Rectangle HorizontalAlignment="Left" Height="1" Margin="45,73,0,0" Stroke="#FFA2A2A2" VerticalAlignment="Top" Width="360" Fill="#FFA2A2A2" Grid.Column="1"/>
+                        <Rectangle HorizontalAlignment="Left" Height="1" Margin="45,99,0,0" Stroke="#FFA2A2A2" VerticalAlignment="Top" Width="360" Fill="#FFA2A2A2" Grid.Column="1"/>
                         <TextBlock  TextDecorations="Underline" HorizontalAlignment="Left" Margin="15,0,0,0" Text="Περιγραφή" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="14"/>
-                        <TextBox x:Name="descriptionTB" IsReadOnly = "True" HorizontalAlignment="Center" Margin="0,177,0,0" TextWrapping="Wrap" Width="674" Height="98" VerticalAlignment="Top"/>
+                        <TextBox x:Name="descriptionTB" IsReadOnly = "True" HorizontalAlignment="Left" Margin="0,177,0,0" TextWrapping="Wrap" Width="674" Height="98" VerticalAlignment="Top" Grid.Column="1"/>
 
                     </Grid>
                 </TabItem>
                 <TabItem Header="Φωτογραφίες" Width="90" Height="Auto">
                     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                         <Grid x:Name="imagesGP" Background="#FFE5E5E5">
-                            <DockPanel VerticalAlignment="Top">
+                            <DockPanel VerticalAlignment="Top" x:Name="fullimagespanel">
                                 <Image Source="C:\Users\chris\OneDrive\Υπολογιστής\ρωμη 2019\YDXJ0353.jpg" Width="Auto" Height="400" Margin="10,10,10,10"></Image>
                                 <Image Source="C:\Users\chris\OneDrive\Υπολογιστής\ρωμη 2019\20191124_125733.jpg" Width="Auto" Height="400" Margin="10,10,10,10"></Image>
                             </DockPanel>
