@@ -31,7 +31,7 @@
         <Label Content="Αριθμός:" HorizontalAlignment="Left" Margin="25,385,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
         <TextBox x:Name="addressNumberTB" HorizontalAlignment="Left" Margin="237,395,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" Height="26" FontSize="17"/>
         <Button Background="{x:Null}" BorderThickness="0" HorizontalAlignment="Left" Margin="618,330,0,0" VerticalAlignment="Top" Height="69" Width="70" FontSize="16" Click="UploadImg">
-            <materialDesign:PackIcon Kind="InsertPhoto" HorizontalAlignment="Center" Height="48" Width="58" />
+            <materialDesign:PackIcon Kind="InsertPhoto" HorizontalAlignment="Left" Height="49" Width="70" RenderTransformOrigin="0.19,-1.801" />
         </Button>
         <Button x:Name="beforeBT"  Background="{x:Null}" HorizontalAlignment="Left" Margin="628,304,0,0" VerticalAlignment="Top" Height="20" Width="20" FontSize="16" Visibility="Hidden" Click="nextPhoto">
             <materialDesign:PackIcon Kind="NavigateBefore" HorizontalAlignment="Center" ></materialDesign:PackIcon>
@@ -50,8 +50,8 @@
         <Label Content="Μισθός:" HorizontalAlignment="Left" Margin="15,197,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
         <TextBox x:Name="salaryTB" HorizontalAlignment="Left" Margin="237,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="86" Height="26" FontSize="17"/>
         <Label Content="€" HorizontalAlignment="Left" Margin="333,199,0,0" VerticalAlignment="Top" FontSize="20" Width="29"/>
-        <Button Content="Δημιουργία" HorizontalAlignment="Left" Margin="562,458,0,0" VerticalAlignment="Top" Height="111" Width="178" FontSize="20" Click="CreateJobAd"/>
-        <Label Foreground="Gray"  Content="Ανέβασε φωτογραφίες" HorizontalAlignment="Left" Margin="546,375,0,0" VerticalAlignment="Top" FontSize="20" Width="218" FontWeight="Thin"/>
+        <Button Content="Δημιουργία" HorizontalAlignment="Left" Margin="546,482,0,0" VerticalAlignment="Top" Height="50" Width="178" FontSize="20" Click="CreateJobAd"  />
+        <Label Foreground="Gray"  Content="Ανέβασε φωτογραφίες" HorizontalAlignment="Left" Margin="552,384,0,0" VerticalAlignment="Top" FontSize="20" Width="218" FontWeight="Thin"/>
 
     </Grid>
 </Window>
