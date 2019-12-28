@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="KonstantinosManeadis" GeneratedClassName="Settings1">
+  <Profiles />
+  <Settings>
+    <Setting Name="connectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">server=localhost;port=3308;user id=root;database=users;CHARSET=utf8</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

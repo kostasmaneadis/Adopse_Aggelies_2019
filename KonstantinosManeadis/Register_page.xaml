@@ -4,17 +4,41 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:KonstantinosManeadis"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      mc:Ignorable="d"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="550" d:DesignWidth="450"
       Title="Register_page">
 
     <Grid>
-        <Frame Width="400">
+        <Rectangle Height="280" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Blue"/>
+                    <GradientStop Color="#FF34268A" Offset="1"/>
+                    <GradientStop Color="#FF2281D1" Offset="0.5" />
 
-        </Frame>
-        <TextBox HorizontalAlignment="Left" Name="Register_username_textbox" Margin="261,120,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="263" Height="55"/>
-        <PasswordBox HorizontalAlignment="Left" Name="Register_password_textbox" Margin="261,269,0,0" VerticalAlignment="Top" Width="263" Height="55"/>
-        <Label Content="Username" HorizontalAlignment="Left" Margin="261,120,0,0" VerticalAlignment="Top"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="261,264,0,0" VerticalAlignment="Top"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+
+        <Rectangle Width="280" Height="416" Fill="White" VerticalAlignment="Top" Margin="85,34,85,0" />
+
+        <Grid Width="280" Height="557" VerticalAlignment="Top" Margin="85,-50,85,0" >
+            <TextBlock Text="Register" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,56,0,0" Foreground="Gray" FontSize="18"/>
+
+            <StackPanel VerticalAlignment="Center" Margin="10">
+
+                <TextBox x:Name="username_textbox"  materialDesign:HintAssist.Hint="Username" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0,10" />
+                <PasswordBox x:Name="password_textbox" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,10"  />
+                <TextBox x:Name="firstname_textbox"  materialDesign:HintAssist.Hint="Firstname" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0,10" />
+                <TextBox x:Name="lastname_textbox"  materialDesign:HintAssist.Hint="Lastname" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0,10" />
+                <TextBox x:Name="email_textbox"  materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0,10" />
+                <TextBox x:Name="birthday_textbox"  materialDesign:HintAssist.Hint="Birthday (yyyy-mm-dd)" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0,10" />
+
+            </StackPanel>
+            <Button Content="Register" HorizontalAlignment="Center" Margin="0,507,0,0" VerticalAlignment="Top" Height="40" Width="100" RenderTransformOrigin="1.1,4.15" Click="Register_Click"/>
+            
+        </Grid>
     </Grid>
 </Page>
