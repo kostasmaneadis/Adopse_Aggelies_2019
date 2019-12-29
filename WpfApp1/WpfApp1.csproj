@@ -16,7 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ChristosOuzouProject\ChristosOuzouProject.csproj" />
     <ProjectReference Include="..\KonstantinosManeadis\KonstantinosManeadis.csproj" />
+    <ProjectReference Include="..\realEstate_DimitrisAnastasiadis\realEstate_DimitrisAnastasiadis.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -35,15 +35,37 @@ namespace WpfApp1
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
         {
-            ButtonOpenMenu.Visibility = Visibility.Collapsed;
-            ButtonCloseMenu.Visibility = Visibility.Visible;
+            //ButtonOpenMenu.Visibility = Visibility.Collapsed;
+            //ButtonCloseMenu.Visibility = Visibility.Visible;
 
         }
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
         {
-            ButtonOpenMenu.Visibility = Visibility.Visible;
-            ButtonCloseMenu.Visibility = Visibility.Collapsed;
+            //ButtonOpenMenu.Visibility = Visibility.Visible;
+            //ButtonCloseMenu.Visibility = Visibility.Collapsed;
+        }
+
+        private void Login_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Main_Content_Frame.Content = new KonstantinosManeadis.Login_page();
+        }
+
+        private void Register_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Main_Content_Frame.Content = new KonstantinosManeadis.Register_page();
+        }
+
+        private void Jobs_Button_Click(object sender, RoutedEventArgs e)
+        {
+            //dokimastika
+            Main_Content_Frame.Content = new ChristosOuzouProject.MainWindow();
+        }
+
+        private void Apartments_Button_Click(object sender, RoutedEventArgs e)
+        {
+            //dokimastika
+            Main_Content_Frame.Content = new realEstate_DimitrisAnastasiadis.Menu();
         }
     }
 }

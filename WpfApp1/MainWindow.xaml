@@ -34,10 +34,10 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid Background="LightGray">
-
+        
         <Grid Height="70" VerticalAlignment="Top" Background="#FF2B8985">
             <TextBlock Text="YOUR ADS" HorizontalAlignment="Center" FontSize="22" />
-            
+
             <StackPanel VerticalAlignment="Center">
                 <TextBlock Text="SETTINGS" HorizontalAlignment="Right" FontSize="18"/>
                 <materialDesing:PopupBox HorizontalAlignment="Right" Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
@@ -47,12 +47,13 @@
                         <Separator/>
                         <Button x:Name="buttomLogout" Content="Logout" Click="ButtomLogout_Click"/>
 
-                    </StackPanel>   
+                    </StackPanel>
                 </materialDesing:PopupBox>
             </StackPanel>
-        
-        
+
+
         </Grid>
+        <Frame x:Name="Main_Content_Frame" NavigationUIVisibility="Hidden"/>
         <Grid x:Name="GridMenu" Width="50" HorizontalAlignment="Left" Background="#FF2B8985">
             <StackPanel>
                 <Grid Height="150" Background="White">
@@ -73,15 +74,15 @@
                         
                     </ListViewItem>
                 </ListView>
-                <Button Width="250" Content="Jobs"  Height="55" FontSize="20" VerticalAlignment="Top"/>
+                <Button Width="250" Content="Jobs"  Height="55" FontSize="20" VerticalAlignment="Top" Click="Jobs_Button_Click"/>
                 <Separator Width="150"/>
-                <Button Width="250" Content="Apartments"  Height="55" FontSize="20"/>
+                <Button Width="250" Content="Apartments"  Height="55" FontSize="20" Click="Apartments_Button_Click"/>
                 <Separator Width="150"/>
                 <Button Width="250" Content="Other"  Height="55" FontSize="20" />
                 <Separator Width="150"/>
-                <Button Width="250" Content="Login" Height="55" FontSize="20" VerticalAlignment="Bottom"  />
+                <Button Width="250" Content="Login" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="Login_Button_Click"  />
                 <Separator Width="150"/>
-                <Button Width="250" Content="Sign up" Height="55" FontSize="20" VerticalAlignment="Bottom" />
+                <Button Width="250" Content="Register" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="Register_Button_Click"/>
                 
             </StackPanel>  
             
