@@ -19,6 +19,7 @@ namespace KonstantinosManeadis
         }
         private static String static_connectionString = Settings1.Default.connectionString;
         private String User_Role = "Guest";
+        private static String User_ID = "#";
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
@@ -26,7 +27,7 @@ namespace KonstantinosManeadis
             {
                 MySqlConnection connection = new MySqlConnection(static_connectionString);
                 connection.Open();
-                MySqlCommand command = new MySqlCommand("select password from users where username=@username", connection);
+                MySqlCommand command = new MySqlCommand("select password,role,id from users where username=@username", connection);
                 string username = username_textbox.Text;
                 command.Parameters.AddWithValue("username", username);
                 using (MySqlDataReader reader = command.ExecuteReader())
@@ -38,6 +39,7 @@ namespace KonstantinosManeadis
                         {
                             System.Diagnostics.Debug.WriteLine(sender.ToString(), "password match with given.. we continue the login process");
                             User_Role = reader["role"].ToString();
+                            User_ID = reader["id"].ToString();
                         }
                         else
                         {
@@ -69,6 +71,11 @@ namespace KonstantinosManeadis
         private string GetUserRole()
         {
             return User_Role;
+        }
+
+        public static string GetUserID()
+        {
+            return User_ID;
         }
         private void username_textbox_TextChanged(object sender, TextChangedEventArgs e)
         {
