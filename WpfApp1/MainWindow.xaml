@@ -83,6 +83,8 @@
                 <Button Width="250" Content="Login" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="Login_Button_Click"  />
                 <Separator Width="150"/>
                 <Button Width="250" Content="Register" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="Register_Button_Click"/>
+                <Separator Width="150"/>
+                <Button Width="250" Content="My Profile" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="UserProfile_Button_Click"/>
                 
             </StackPanel>  
             

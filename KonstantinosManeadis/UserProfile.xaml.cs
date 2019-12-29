@@ -33,7 +33,7 @@ namespace KonstantinosManeadis
                     }
                     else
                     {
-                       //error
+                        Username_label.Content = "You must Login to Continue to this page";
                     }
                 }
                 connection.Close();
@@ -41,14 +41,13 @@ namespace KonstantinosManeadis
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                Username_label.Content = "You must Login to Continue to this page";
             }
-            
         }
 
         private void Edit_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            EditUserProfile newWindows = new EditUserProfile();
+            newWindows.Show();
         }
     }
 }

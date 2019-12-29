@@ -64,8 +64,12 @@ namespace WpfApp1
 
         private void Apartments_Button_Click(object sender, RoutedEventArgs e)
         {
-            //dokimastika
+            //dokimastika Main_Content_Frame.Content = new KonstantinosManeadis.UserProfile();
             Main_Content_Frame.Content = new realEstate_DimitrisAnastasiadis.Menu();
+        }
+        private void UserProfile_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Main_Content_Frame.Content = new KonstantinosManeadis.UserProfile();
         }
     }
 }
