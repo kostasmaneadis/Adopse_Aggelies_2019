@@ -18,7 +18,7 @@ namespace KonstantinosManeadis
             InitializeComponent();
         }
         private static String static_connectionString = Settings1.Default.connectionString;
-        private String User_Role = "Guest";
+        private static String User_Role = "guest";
         private static String User_ID = "#";
 
         private void Login_Click(object sender, RoutedEventArgs e)
@@ -68,7 +68,7 @@ namespace KonstantinosManeadis
             }
             return status;
         }
-        private string GetUserRole()
+        public static string GetUserRole()
         {
             return User_Role;
         }

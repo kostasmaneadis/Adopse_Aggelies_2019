@@ -71,5 +71,15 @@ namespace WpfApp1
         {
             Main_Content_Frame.Content = new KonstantinosManeadis.UserProfile();
         }
+
+        private void Administrator_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Main_Content_Frame.Content = new KonstantinosManeadis.Administrator.Administrator_main();
+        }
+
+        private void Manager_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
