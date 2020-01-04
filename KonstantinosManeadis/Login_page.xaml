@@ -30,7 +30,7 @@
             <StackPanel Height="150" VerticalAlignment="Center" Margin="10,0,10,0">
                 <TextBox x:Name="username_textbox"  materialDesign:HintAssist.Hint="Username" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="57" FontSize="25" />
                 <PasswordBox x:Name="password_textbox" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Width="445" Height="58" FontSize="25"  />
-
+                <Label x:Name="login_status"></Label>
             </StackPanel>
             <Button Content="Login" VerticalAlignment="Top" HorizontalAlignment="Center"  Margin="0,365,0,0" Width="136" Height="50" FontSize="20" Click="Login_Click" />
         </Grid>

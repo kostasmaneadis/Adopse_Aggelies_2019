@@ -25,6 +25,7 @@ namespace KonstantinosManeadis
         {
             try
             {
+                login_status.Content = "Loading...";
                 MySqlConnection connection = new MySqlConnection(static_connectionString);
                 connection.Open();
                 MySqlCommand command = new MySqlCommand("select password,role,userid from users where username=@username", connection);
@@ -40,15 +41,20 @@ namespace KonstantinosManeadis
                             System.Diagnostics.Debug.WriteLine(sender.ToString(), "password match with given.. we continue the login process");
                             User_Role = reader["role"].ToString();
                             User_ID = reader["userid"].ToString();
+                            login_status.Foreground = System.Windows.Media.Brushes.Green;
+                            login_status.Content = "Successfully Logged In";
                         }
                         else
                         {
-                            System.Diagnostics.Debug.WriteLine(sender.ToString(), "password is wrong");
+                            login_status.Foreground = System.Windows.Media.Brushes.Red;
+                            login_status.Content = "You password is wrong, try again";
+                            
                         }
                     }
                     else
                     {
-                        System.Diagnostics.Debug.WriteLine(sender.ToString(), "username doesnt exist to database");
+                        login_status.Foreground = System.Windows.Media.Brushes.Red;
+                        login_status.Content = "Sorry, no member with this Username, please try again";
                     }
                 }
                 connection.Close();
