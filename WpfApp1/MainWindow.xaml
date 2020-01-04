@@ -10,29 +10,7 @@
         Title="ΑΔΟΠΣΕ 2019/20" Height="1080" Width="1920"
         WindowState="Maximized"   
         >
-    <Window.Resources>
-        <Storyboard x:Key="MenuOpen">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameWorkElement)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="MenuClose">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameWorkElement)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="70"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-
-    </Window.Resources>
-    <Window.Triggers>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
-            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
-            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
-        </EventTrigger>
-    </Window.Triggers>
+ 
     <Grid Background="LightGray">
 
         <Grid Height="70" VerticalAlignment="Top" Background="#FF2B8985">
@@ -56,15 +34,7 @@
         <Frame x:Name="Main_Content_Frame" NavigationUIVisibility="Hidden" />
         <Grid x:Name="GridMenu" Width="231" HorizontalAlignment="Left" Background="#FF2B8985">
             <StackPanel>
-                <Grid Height="150" Background="White">
-                    <Button x:Name="ButtonCloseMenu"  Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="ButtonCloseMenu_Click">
-                        <materialDesing:PackIcon Foreground="#FF2B8985" Kind="ArrowLeft" Width="25" Height="25"/>
-                    </Button>
-                    <Button x:Name="ButtonOpenMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenMenu_Click">
-                        <materialDesing:PackIcon Foreground="#FF2B8985" Kind="Menu" Width="25" Height="25"/>
-                    </Button>
-
-                </Grid>
+                <Grid Height="150" Background="White"/>
                 <ListView Background="#FF2B8985">
                     <ListViewItem Height="60" Width="135">
                         <StackPanel Orientation="Horizontal">
@@ -93,7 +63,7 @@
             </StackPanel>
 
         </Grid>
-
+        <Image Source="ads-logo.png" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Height="145" VerticalAlignment="Top" Margin="-29,10,0,0" Width="260" />
     </Grid>
 
 
