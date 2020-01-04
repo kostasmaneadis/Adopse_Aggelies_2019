@@ -18,7 +18,7 @@ namespace KonstantinosManeadis
             {
                 MySqlConnection connection = new MySqlConnection(static_connectionString);
                 connection.Open();
-                MySqlCommand command = new MySqlCommand("select username,firstname,lastname,birthday,email from users where id=@id", connection);
+                MySqlCommand command = new MySqlCommand("select username,firstname,lastname,birthday,email from users where userid=@id", connection);
                 string id = Login_page.GetUserID();
                 command.Parameters.AddWithValue("id", id);
                 using (MySqlDataReader reader = command.ExecuteReader())

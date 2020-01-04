@@ -17,7 +17,7 @@ namespace KonstantinosManeadis
             {
                 MySqlConnection connection = new MySqlConnection(static_connectionString);
                 connection.Open();
-                MySqlCommand command = new MySqlCommand("select username,firstname,lastname,email from users where id=@id", connection);
+                MySqlCommand command = new MySqlCommand("select username,firstname,lastname,email from users where userid=@id", connection);
                 string id = Login_page.GetUserID();
                 command.Parameters.AddWithValue("id", id);
                 using (MySqlDataReader reader = command.ExecuteReader())
@@ -49,7 +49,7 @@ namespace KonstantinosManeadis
                 //test register to db with mysql client
                 MySqlConnection connection = new MySqlConnection(static_connectionString);
                 connection.Open();
-                MySqlCommand command = new MySqlCommand("UPDATE `users` SET `username`=@username, `firstname`=@firstname, `lastname`=@lastname, `email`=@email Where `id`=@id ", connection);
+                MySqlCommand command = new MySqlCommand("UPDATE `users` SET `username`=@username, `firstname`=@firstname, `lastname`=@lastname, `email`=@email Where `userid`=@id ", connection);
 
                 string username = username_textbox.Text;
                 command.Parameters.AddWithValue("username", username);
