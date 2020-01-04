@@ -35,7 +35,7 @@
                 <TextBox x:Name="lastname_textbox"  materialDesign:HintAssist.Hint="Lastname" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0,10" FontSize="20" />
                 <TextBox x:Name="email_textbox"  materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0,10" FontSize="20" />
                 <TextBox x:Name="birthday_textbox"  materialDesign:HintAssist.Hint="Birthday (yyyy-mm-dd)" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0,10" FontSize="20" />
-
+                <Label x:Name="register_status"></Label>
             </StackPanel>
             <Button Content="Register" HorizontalAlignment="Left" Margin="70,507,0,0" VerticalAlignment="Top" Height="50" Width="170" RenderTransformOrigin="1.1,4.15" Click="Register_Click" FontSize="20"/>
 
