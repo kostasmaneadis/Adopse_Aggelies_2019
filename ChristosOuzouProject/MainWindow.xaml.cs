@@ -36,6 +36,8 @@ namespace ChristosOuzouProject
             CB_fill();
             ViewJob vj = new ViewJob();
             vj.Show();
+            AddCar ac = new AddCar();
+            ac.Show();
         }
         private void CB_fill()
         {
@@ -155,10 +157,12 @@ namespace ChristosOuzouProject
             uploadImg.Source = imgList.First();
             uploadImg.Visibility = Visibility.Visible;
             rmB.Visibility = Visibility.Visible;
+            nextBT.Visibility = Visibility.Visible;
+            beforeBT.Visibility = Visibility.Visible;
         }
 
         private void nextPhoto(object sender, RoutedEventArgs e)
-        {
+        { 
             Button bt = e.Source as Button;
             if (bt.Name == "nextBT")
                 if (imagecounter >= (imgList.Count - 1))
@@ -225,18 +229,7 @@ namespace ChristosOuzouProject
                     {
                         comm = new MySqlCommand("INSERT INTO photos(adsId,photo) VALUES(@adid,@photo)", conn);
                         byte[] data = null;
-                        /* JpegBitmapEncoder encoder = new JpegBitmapEncoder();
-                         System.Diagnostics.Debug.WriteLine("ok1");
-                         encoder.Frames.Add(BitmapFrame.Create(i);
-                         System.Diagnostics.Debug.WriteLine("ok2");
-                         using (MemoryStream ms = new MemoryStream())
-                         {
-                             System.Diagnostics.Debug.WriteLine("ok3");
-                             encoder.Save(ms);
-                             System.Diagnostics.Debug.WriteLine("ok4");
-                             data = ms.ToArray();
-                             System.Diagnostics.Debug.WriteLine("ok");
-                         }*/
+                        
                         System.Diagnostics.Debug.WriteLine(i.ToString());
                         var ms = new MemoryStream();
                         var jpgEncoder = new JpegBitmapEncoder();
@@ -254,7 +247,19 @@ namespace ChristosOuzouProject
             {
                 System.Diagnostics.Debug.WriteLine(ex.ToString());
             }
-            
+            mainCatCB.SelectedIndex = -1;
+            subCatCB.SelectedIndex = -1;
+            foul_part_timeCB.SelectedIndex = -1;
+            salaryTB.Text = "";
+            regionCB.SelectedIndex = -1;
+            cityCB.SelectedIndex = -1;
+            addressCB.SelectedIndex = -1;
+            addressNumberTB.Text = "";
+            DescriptionTB.Text = "";
+            rmB.Visibility = Visibility.Hidden;
+            nextBT.Visibility = Visibility.Hidden;
+            beforeBT.Visibility = Visibility.Hidden;
+            imgList.Clear();
         }
     }
 }
