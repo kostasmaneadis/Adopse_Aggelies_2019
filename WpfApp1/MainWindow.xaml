@@ -7,37 +7,15 @@
         mc:Ignorable="d"  
         xmlns:materialDesing="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Title="ΑΔΟΠΣΕ 2019/20" Height="600" Width="1080"
+        Title="ΑΔΟΠΣΕ 2019/20" Height="1080" Width="1920"
         WindowState="Maximized"   
         >
-    <Window.Resources>
-        <Storyboard x:Key="MenuOpen">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameWorkElement)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="MenuClose">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameWorkElement)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="70"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-
-    </Window.Resources>
-    <Window.Triggers>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
-            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
-            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
-        </EventTrigger>
-    </Window.Triggers>
+ 
     <Grid Background="LightGray">
 
         <Grid Height="70" VerticalAlignment="Top" Background="#FF2B8985">
             <TextBlock Text="YOUR ADS" HorizontalAlignment="Center" FontSize="22" />
-            
+
             <StackPanel VerticalAlignment="Center">
                 <TextBlock Text="SETTINGS" HorizontalAlignment="Right" FontSize="18"/>
                 <materialDesing:PopupBox HorizontalAlignment="Right" Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
@@ -47,47 +25,46 @@
                         <Separator/>
                         <Button x:Name="buttomLogout" Content="Logout" Click="ButtomLogout_Click"/>
 
-                    </StackPanel>   
+                    </StackPanel>
                 </materialDesing:PopupBox>
             </StackPanel>
-        
-        
-        </Grid>
-        <Grid x:Name="GridMenu" Width="50" HorizontalAlignment="Left" Background="#FF2B8985">
-            <StackPanel>
-                <Grid Height="150" Background="White">
-                    <Button x:Name="ButtonCloseMenu"  Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="ButtonCloseMenu_Click">
-                        <materialDesing:PackIcon Foreground="#FF2B8985" Kind="ArrowLeft" Width="25" Height="25"/>
-                    </Button>
-                    <Button x:Name="ButtonOpenMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenMenu_Click">
-                        <materialDesing:PackIcon Foreground="#FF2B8985" Kind="Menu" Width="25" Height="25"/>
-                    </Button>
 
-                </Grid>
+
+        </Grid>
+        <Frame x:Name="Main_Content_Frame" NavigationUIVisibility="Hidden" />
+        <Grid x:Name="GridMenu" Width="231" HorizontalAlignment="Left" Background="#FF2B8985">
+            <StackPanel>
+                <Grid Height="150" Background="White"/>
                 <ListView Background="#FF2B8985">
-                    <ListViewItem Height="60">
+                    <ListViewItem Height="60" Width="135">
                         <StackPanel Orientation="Horizontal">
                             <materialDesing:PackIcon Kind="ViewDashboard" Width="25" Height="25" VerticalAlignment="Top"/>
                             <TextBlock Text="home" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
-                        
+
                     </ListViewItem>
                 </ListView>
-                <Button Width="250" Content="Jobs"  Height="55" FontSize="20" VerticalAlignment="Top"/>
+                <Button Width="250" Content="Jobs"  Height="55" FontSize="20" VerticalAlignment="Top" Click="Jobs_Button_Click"/>
                 <Separator Width="150"/>
-                <Button Width="250" Content="Apartments"  Height="55" FontSize="20"/>
+                <Button Width="250" Content="Apartments"  Height="55" FontSize="20" Click="Apartments_Button_Click"/>
                 <Separator Width="150"/>
                 <Button Width="250" Content="Other"  Height="55" FontSize="20" />
                 <Separator Width="150"/>
-                <Button Width="250" Content="Login" Height="55" FontSize="20" VerticalAlignment="Bottom"  />
+                <Button Width="250" Content="Login" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="Login_Button_Click"  />
                 <Separator Width="150"/>
-                <Button Width="250" Content="Sign up" Height="55" FontSize="20" VerticalAlignment="Bottom" />
-                
-            </StackPanel>  
-            
-        </Grid>
+                <Button Width="250" Content="Register" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="Register_Button_Click"/>
+                <Separator Width="150"/>
+                <Button Width="250" Content="My Profile" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="UserProfile_Button_Click"/>
+                <Separator Width="150"/>
+                <Button Width="250" Content="Administrator's Panel" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="Administrator_Button_Click"/>
+                <Separator Width="150"/>
+                <Button Width="250" Content="Manager's Panel" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="Manager_Button_Click"/>
 
+            </StackPanel>
+
+        </Grid>
+        <Image Source="ads-logo.png" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Height="145" VerticalAlignment="Top" Margin="-29,10,0,0" Width="260" />
     </Grid>
-    
-  
+
+
 </Window>

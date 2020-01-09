@@ -32,18 +32,40 @@ namespace WpfApp1
         {
             Application.Current.Shutdown();
         }
-
-        private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
+        private void Login_Button_Click(object sender, RoutedEventArgs e)
         {
-            ButtonOpenMenu.Visibility = Visibility.Collapsed;
-            ButtonCloseMenu.Visibility = Visibility.Visible;
-
+            Main_Content_Frame.Content = new KonstantinosManeadis.Login_page();
         }
 
-        private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
+        private void Register_Button_Click(object sender, RoutedEventArgs e)
         {
-            ButtonOpenMenu.Visibility = Visibility.Visible;
-            ButtonCloseMenu.Visibility = Visibility.Collapsed;
+            Main_Content_Frame.Content = new KonstantinosManeadis.Register_page();
+        }
+
+        private void Jobs_Button_Click(object sender, RoutedEventArgs e)
+        {
+            //dokimastika
+            Main_Content_Frame.Content = new ChristosOuzouProject.MainWindow();
+        }
+
+        private void Apartments_Button_Click(object sender, RoutedEventArgs e)
+        {
+            //dokimastika Main_Content_Frame.Content = new KonstantinosManeadis.UserProfile();
+            Main_Content_Frame.Content = new realEstate_DimitrisAnastasiadis.Menu();
+        }
+        private void UserProfile_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Main_Content_Frame.Content = new KonstantinosManeadis.UserProfile();
+        }
+
+        private void Administrator_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Main_Content_Frame.Content = new KonstantinosManeadis.Administrator.Administrator_main();
+        }
+
+        private void Manager_Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
