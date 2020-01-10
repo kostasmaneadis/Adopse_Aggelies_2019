@@ -10,31 +10,35 @@
         Title="ΑΔΟΠΣΕ 2019/20" Height="1080" Width="1920"
         WindowState="Maximized"   
         >
- 
+
     <Grid Background="LightGray">
-
-        <Grid Height="70" VerticalAlignment="Top" Background="#FF2B8985">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.45*" />
+            <ColumnDefinition Width="10.55*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="10*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1" Height="78" VerticalAlignment="Top" Background="#FF2B8985" Margin="0,4,0,0">
             <TextBlock Text="YOUR ADS" HorizontalAlignment="Center" FontSize="22" />
-
             <StackPanel VerticalAlignment="Center">
-                <TextBlock Text="SETTINGS" HorizontalAlignment="Right" FontSize="18"/>
+                <TextBlock Text="Settings" HorizontalAlignment="Right" FontSize="18"/>
                 <materialDesing:PopupBox HorizontalAlignment="Right" Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
                     <StackPanel Width="150">
-                        <Button Content="Account"/>
-                        <Button Content="Help"/>
+                        <Button Content="Administrator's Panel" Click="Administrator_Button_Click"/>
+                        <Button Content="Manager's Panel" Click="Manager_Button_Click"/>
                         <Separator/>
-                        <Button x:Name="buttomLogout" Content="Logout" Click="ButtomLogout_Click"/>
-
+                        <Button Content="About"/>
+                        <Separator/>
+                        <Button Content="Logout" Click="Logout_Button_Click"/>
                     </StackPanel>
                 </materialDesing:PopupBox>
             </StackPanel>
-
-
         </Grid>
-        <Frame x:Name="Main_Content_Frame" NavigationUIVisibility="Hidden" />
-        <Grid x:Name="GridMenu" Width="231" HorizontalAlignment="Left" Background="#FF2B8985">
+        <Frame Grid.Column="1" Grid.Row="1" x:Name="Main_Content_Frame" NavigationUIVisibility="Hidden" />
+        <Grid Grid.Column="0" Grid.Row="1" x:Name="GridMenu" Width="231" HorizontalAlignment="Left" Background="#FF2B8985">
             <StackPanel>
-                <Grid Height="150" Background="White"/>
                 <ListView Background="#FF2B8985">
                     <ListViewItem Height="60" Width="135">
                         <StackPanel Orientation="Horizontal">
@@ -59,12 +63,10 @@
                 <Button Width="250" Content="Administrator's Panel" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="Administrator_Button_Click"/>
                 <Separator Width="150"/>
                 <Button Width="250" Content="Manager's Panel" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="Manager_Button_Click"/>
-
             </StackPanel>
-
         </Grid>
-        <Image Source="ads-logo.png" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Height="145" VerticalAlignment="Top" Margin="-29,10,0,0" Width="260" />
+        <Grid  Grid.Row="0" Grid.Column="0" Height="170" Background="White">
+            <Image Source="ads-logo.png" HorizontalAlignment="Left" Height="145" VerticalAlignment="Top" Margin="-29,10,0,0" Width="260" />
+        </Grid>
     </Grid>
-
-
 </Window>

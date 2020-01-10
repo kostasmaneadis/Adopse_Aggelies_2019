@@ -15,7 +15,7 @@
         <TabControl x:Name="main_tab_control" Width="1280" Height="720" SelectionChanged="TabControl_SelectionChanged">
             <TabItem x:Name="users_tab" Header="Users" Margin="-2,-2,-86,0">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="Users_datatable" AutoGenerateColumns="True" Width="1280" Height="720" />
+                    <DataGrid x:Name="Users_datatable" AutoGenerateColumns="True" Width="1280" Height="720" IsReadOnly="True" />
                 </Grid>
 
             </TabItem>

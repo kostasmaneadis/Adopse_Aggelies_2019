@@ -26,9 +26,9 @@ namespace WpfApp1
     {
         public MainWindow()
         {
-            //InitializeComponent();
+            InitializeComponent();
         }
-        private void ButtomLogout_Click(object sender, RoutedEventArgs e)
+        private void Logout_Button_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
