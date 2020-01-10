@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:realEstate_DimitrisAnastasiadis"
       mc:Ignorable="d"
       Title="newAd" Background="White" Height="950" Width="1400">
-    <ScrollViewer Height="Auto" Margin="0,25,0,0">
+    <ScrollViewer Height="Auto" Margin="10,25,0,10">
         <StackPanel Height="868" Width="1168">
             <!--Βασικά Χαρακηριστικά-->
             <!-- Τοποθεσία Ακινήτου -->
