@@ -34,5 +34,11 @@ namespace realEstate_DimitrisAnastasiadis
             showAdsPanel showAdsPanelPage = new showAdsPanel();
             NavigationService.Navigate(showAdsPanelPage);
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            deleteAd deleteAdPage = new deleteAd();
+            NavigationService.Navigate(deleteAdPage);
+        }
     }
 }

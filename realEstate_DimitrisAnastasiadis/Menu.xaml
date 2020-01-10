@@ -9,6 +9,7 @@
       Title="Menu">
 
     <Grid>
+
         <Rectangle Height="440" VerticalAlignment="Top">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -32,6 +33,7 @@
                 <Button Content="Διαγραφή Αγγελίας" Background="#ffdb42" Margin="5 15 5 15" Grid.Row="2" Height="52" FontSize="20"/>
             </StackPanel>
         </Grid>
+
 
 
     </Grid>
