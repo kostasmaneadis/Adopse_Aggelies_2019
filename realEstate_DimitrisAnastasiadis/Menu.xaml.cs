@@ -31,8 +31,8 @@ namespace realEstate_DimitrisAnastasiadis
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            showAd showAdPage = new showAd();
-            NavigationService.Navigate(showAdPage);
+            showAdsPanel showAdsPanelPage = new showAdsPanel();
+            NavigationService.Navigate(showAdsPanelPage);
         }
     }
 }
