@@ -16,6 +16,6 @@
         </Grid.RowDefinitions>
         <Button x:Name="newAdButton" Content="Νέα Αγγελία" Background="#ffdb42" Margin="5 15 5 15" Grid.Row="0" Click="newAdButton_Click" />
         <Button Content="Προβολή Αγγελίας" Background="#ffdb42" Margin="5 15 5 15" Grid.Row="1" Click="Button_Click"/>
-        <Button Content="Διαγραφή Αγγελίας" Background="#ffdb42" Margin="5 15 5 15" Grid.Row="2"/>
+        <Button Content="Διαγραφή Αγγελίας" Background="#ffdb42" Margin="5 15 5 15" Grid.Row="2" Click="Button_Click_1"/>
     </Grid>
 </Page>

@@ -1,0 +1,18 @@
+﻿<Page x:Class="realEstate_DimitrisAnastasiadis.deleteAd"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:realEstate_DimitrisAnastasiadis"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="deleteAd" Background="White">
+
+    <ScrollViewer Height="Auto">
+        <StackPanel>
+            <ListBox x:Name="AdsList" MouseDoubleClick="AdsList_MouseDoubleClick"/>
+            <TextBlock x:Name="noAdsMessage" Visibility="Hidden" Text="Δεν έχετε αγγελίες για διαγραφή!"/>
+        </StackPanel>
+        
+    </ScrollViewer>
+</Page>

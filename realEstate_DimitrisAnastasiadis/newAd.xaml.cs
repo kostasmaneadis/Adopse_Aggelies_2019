@@ -38,6 +38,7 @@ namespace realEstate_DimitrisAnastasiadis
             float area, price;
             int bedrooms, bathrooms;
             List<int> floor = new List<int>();
+            String userId = KonstantinosManeadis.Login_page.GetUserID();
 
             if (diamerismaRB.IsChecked == true)
                 kind = "Διαμέρισμα";
@@ -86,7 +87,7 @@ namespace realEstate_DimitrisAnastasiadis
             int addressID = int.Parse(addressIDString[0]);
             long fullAddressID = database.insertAutoIncrement($"insert into fulladdress(addressid,number) values({addressID},{arithmosTB.Text})");
 
-            adID = database.insertAutoIncrement($"INSERT INTO ads(dateAdded,description,categoryId,superAd,address) VALUES(now(), '{description}', 2, 0, {fullAddressID})");
+            adID = database.insertAutoIncrement($"INSERT INTO ads(userId,dateAdded,description,categoryId,superAd,address) VALUES({userId},now(), '{description}', 2, 0, {fullAddressID})");
             testBlock.Text = adID.ToString();
 
             database.insertQuery($"INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES({adID}, 1, '{sell_rent}')");
@@ -104,6 +105,12 @@ namespace realEstate_DimitrisAnastasiadis
         private bool dataValidated()
         {
             bool dataValidated = true;
+
+            if (KonstantinosManeadis.Login_page.GetUserRole() == "guest")
+            {
+                MessageBox.Show("Πρέπει να κάνετε login!");
+                dataValidated = false;
+            }
 
             if (diamerismaRB.IsChecked == false && ktirioRB.IsChecked == false && mezonetaRB.IsChecked == false && monokatoikiaRB.IsChecked == false)
             {

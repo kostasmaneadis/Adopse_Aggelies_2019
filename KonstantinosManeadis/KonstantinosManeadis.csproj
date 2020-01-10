@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\realEstate_DimitrisAnastasiadis\realEstate_DimitrisAnastasiadis.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Properties\Settings1.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
