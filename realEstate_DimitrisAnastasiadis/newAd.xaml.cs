@@ -88,7 +88,6 @@ namespace realEstate_DimitrisAnastasiadis
             long fullAddressID = database.insertAutoIncrement($"insert into fulladdress(addressid,number) values({addressID},{arithmosTB.Text})");
 
             adID = database.insertAutoIncrement($"INSERT INTO ads(userId,dateAdded,description,categoryId,superAd,address) VALUES({userId},now(), '{description}', 2, 0, {fullAddressID})");
-            testBlock.Text = adID.ToString();
 
             database.insertQuery($"INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES({adID}, 1, '{sell_rent}')");
             database.insertQuery($"INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES({adID}, 2, '{price}')");
