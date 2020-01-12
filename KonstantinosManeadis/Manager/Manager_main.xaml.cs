@@ -77,7 +77,30 @@ namespace KonstantinosManeadis.Manager
                 {
 
                 }
-               
+                if (alerts_tab.IsSelected)
+                {
+                    try
+                    {
+                        MySqlConnection connection = new MySqlConnection(static_connectionString);
+                        connection.Open();
+                        MySqlCommand command = new MySqlCommand("select * from ads where ban_status='alert' ", connection);
+                        MySqlDataAdapter addresses_adapter = new MySqlDataAdapter(command);
+                        DataTable dt = new DataTable("ads");
+
+                        addresses_adapter.Fill(dt);
+                        alerts_datatable.ItemsSource = dt.DefaultView;
+                        addresses_adapter.Update(dt);
+
+
+                        connection.Close();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+
                 if (addresses_tab.IsSelected)
                 {
                     try
@@ -216,7 +239,6 @@ namespace KonstantinosManeadis.Manager
                 addresses_label_status.Content = "Something went wrong";
             }
         }
-        //ori_Address_Action_Button_Click
         private void ori_Address_Action_Button_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -242,6 +264,54 @@ namespace KonstantinosManeadis.Manager
             {
                 MessageBox.Show(ex.Message);
                 ori_addresses_label_status.Content = "Something went wrong";
+            }
+        }
+
+        private void Alert_Restore_Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(static_connectionString);
+                connection.Open();
+                MySqlCommand command = new MySqlCommand("UPDATE `ads` SET `ban_status`=@status Where `adid`=@adid  ", connection);
+                string adid = alert_id_textbox.Text;
+                command.Parameters.AddWithValue("adid", adid);
+
+                string status = "ok";
+                command.Parameters.AddWithValue("status", status);
+
+                command.ExecuteNonQuery();
+                connection.Close();
+                alert_label_status.Content = "Ad Updated as : ok";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                alert_label_status.Content = "Something went wrong";
+            }
+        }
+
+        private void Alert_Ban_Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(static_connectionString);
+                connection.Open();
+                MySqlCommand command = new MySqlCommand("UPDATE `ads` SET `ban_status`=@status Where `adid`=@adid  ", connection);
+                string adid = alert_id_textbox.Text;
+                command.Parameters.AddWithValue("adid", adid);
+
+                string status = "ban";
+                command.Parameters.AddWithValue("status", status);
+
+                command.ExecuteNonQuery();
+                connection.Close();
+                alert_label_status.Content = "Ad Updated as : ban";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                alert_label_status.Content = "Something went wrong";
             }
         }
     }
