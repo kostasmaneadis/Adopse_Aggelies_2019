@@ -19,7 +19,8 @@ namespace ChristosOuzouProject
     /// </summary>
     public partial class ViewJob : Page
     {
-        static string constring = "SERVER=localhost;DATABASE=mydb;UID=christos;PASSWORD=2341093066;";
+        //static string constring = "SERVER=localhost;DATABASE=mydb;UID=christos;PASSWORD=2341093066;";
+        static string constring = "server =localhost;port=3308;user id = root; database=adopse;CHARSET=utf8";
         MySqlConnection conn = new MySqlConnection(constring);
         List<BitmapImage> imgList = new List<BitmapImage>();
         /* MySqlCommand comm = new MySqlCommand("SELECT region, municipality, address FROM addresses AD WHERE AD.id IN (SELECT addressid FROM fulladdress WHERE id IN (SELECT address FROM ads WHERE ))",conn);
