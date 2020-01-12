@@ -18,6 +18,8 @@ namespace realEstate_DimitrisAnastasiadis
     /// </summary>
     public partial class showAd : Page
     {
+
+        long adID;
         public showAd()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace realEstate_DimitrisAnastasiadis
         {
             List<String> selectReturn;
             float price, area;
-            long adID = long.Parse(showAdsPanel.selectedAdId);
+            adID = long.Parse(showAdsPanel.selectedAdId);
 
             selectReturn = database.selectQuery($"SELECT a.stringValue FROM propertyvalue a WHERE a.adId={adID} and a.propertyId=4");
             kind.Text = selectReturn[0];
@@ -60,6 +62,11 @@ namespace realEstate_DimitrisAnastasiadis
 
             selectReturn = database.selectQuery($"SELECT a.description FROM ads a WHERE a.adId={adID}");
             descriptionTB.Text = selectReturn[0];
+        }
+
+        private void submitButton_Click(object sender, RoutedEventArgs e)
+        {
+            database.insertQuery($"UPDATE ads SET ban_status='alert' where adId={adID}");
         }
     }
 }
