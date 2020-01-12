@@ -1,0 +1,57 @@
+﻿<Window x:Class="ChristosOuzouProject.ViewCar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChristosOuzouProject"
+        mc:Ignorable="d"
+        Title="ViewCar" Height="450" Width="800">
+    <Grid>
+
+        <Label x:Name="jobTitleL" Content="Πώληση Αυτοκινήτου" HorizontalAlignment="Left" Margin="88,27,0,0" VerticalAlignment="Top" Width="600" FontWeight="Bold"/>
+        <Label x:Name="carLocationL" Content="" HorizontalAlignment="Left" Margin="88,57,0,0" VerticalAlignment="Top" Width="600" FontSize="9"/>
+        <Grid Margin="10,100,10,31" >
+            <TabControl VerticalAlignment="Top" Margin="0,0,0,0">
+                <TabItem Header="Περιγραφή" Width="75">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="113*"/>
+                            <ColumnDefinition Width="787*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image x:Name="jobadprevImg" HorizontalAlignment="Left" Height="120" Margin="16,14,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+                        <Label Content="Περιοχή - Διέυθυνση:" HorizontalAlignment="Left" Margin="37,18,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <Line Grid.ColumnSpan="2"></Line>
+                        <Label Content="Μοντέλο:" HorizontalAlignment="Left" Margin="37,76,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+
+                        <Label x:Name="jobAddressL" Content="Label" HorizontalAlignment="Left" Margin="185,15,0,0" VerticalAlignment="Top" Width="221" Grid.Column="1"/>
+
+                        <Label x:Name="jobKindL"  Content="Label" HorizontalAlignment="Left" Margin="185,44,0,0" VerticalAlignment="Top" Width="221" Grid.Column="1"/>
+
+                        <Label Content="Μάρκα:" HorizontalAlignment="Left" Margin="37,47,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+
+                        <Label x:Name="jobSalaryL"  Content="Label" HorizontalAlignment="Left" Margin="185,73,0,0" VerticalAlignment="Top" Width="221" Grid.Column="1"/>
+                        <Rectangle HorizontalAlignment="Left" Height="1" Margin="45,44,0,0" Stroke="#FFA2A2A2" VerticalAlignment="Top" Width="360" Fill="#FFA2A2A2" Grid.Column="1"/>
+                        <Rectangle HorizontalAlignment="Left" Height="1" Margin="45,73,0,0" Stroke="#FFA2A2A2" VerticalAlignment="Top" Width="360" Fill="#FFA2A2A2" Grid.Column="1"/>
+                        <Rectangle HorizontalAlignment="Left" Height="1" Margin="45,99,0,0" Stroke="#FFA2A2A2" VerticalAlignment="Top" Width="360" Fill="#FFA2A2A2" Grid.Column="1"/>
+                        <TextBlock  TextDecorations="Underline" HorizontalAlignment="Left" Margin="15,0,0,0" Text="Περιγραφή" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="14"/>
+                        <TextBox x:Name="descriptionTB" IsReadOnly = "True" HorizontalAlignment="Left" Margin="0,177,0,0" TextWrapping="Wrap" Width="674" Height="98" VerticalAlignment="Top" Grid.Column="1"/>
+                        <Label Content="Χρώμα:" HorizontalAlignment="Left" Margin="37,104,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <Label x:Name="jobSalaryL_Copy"  Content="Label" HorizontalAlignment="Left" Margin="185,101,0,0" VerticalAlignment="Top" Width="221" Grid.Column="1"/>
+
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Φωτογραφίες" Width="90" Height="Auto">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                        <Grid x:Name="imagesGP" Background="#FFE5E5E5">
+                            <DockPanel VerticalAlignment="Top" x:Name="fullimagespanel">
+                                <Image Source="C:\Users\chris\OneDrive\Υπολογιστής\ρωμη 2019\YDXJ0353.jpg" Width="Auto" Height="400" Margin="10,10,10,10"></Image>
+                                <Image Source="C:\Users\chris\OneDrive\Υπολογιστής\ρωμη 2019\20191124_125733.jpg" Width="Auto" Height="400" Margin="10,10,10,10"></Image>
+                            </DockPanel>
+                        </Grid>
+                    </ScrollViewer>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Grid>
+</Window>

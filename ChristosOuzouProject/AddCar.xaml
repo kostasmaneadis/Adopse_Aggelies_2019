@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ChristosOuzouProject"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="AddCar" Height="635" Width="926">
+        Title="AddCar" Height="721" Width="926">
     <Grid Height="691" Margin="0,0,-90,0">
         <Label Content="Καταχώρηση Αγγελίας Οχήματος" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="40"/>
         <Label Content="Μάρκα:" HorizontalAlignment="Left" Margin="14,95,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
@@ -14,7 +14,7 @@
         <ComboBox x:Name="modelCB" HorizontalAlignment="Left" Margin="233,142,0,0" VerticalAlignment="Top" Width="180"/>
         <Label Content="Μοντέλο:" HorizontalAlignment="Left" Margin="15,129,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
         <Label Content="Ημ/νία Ταξινόμησης:" HorizontalAlignment="Left" Margin="15,167,0,0" VerticalAlignment="Top" FontSize="20" Width="199"/>
-        <DatePicker HorizontalAlignment="Left" Margin="233,175,0,0" VerticalAlignment="Top" Width="180"/>
+        <DatePicker x:Name="registrationDP" HorizontalAlignment="Left" Margin="233,175,0,0" VerticalAlignment="Top" Width="180"/>
         <Label Content="Τιμή:" HorizontalAlignment="Left" Margin="15,307,0,0" VerticalAlignment="Top" FontSize="20" Width="199"/>
         <TextBox x:Name="salaryTB" HorizontalAlignment="Left" Margin="233,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="86" Height="26" FontSize="17"/>
         <Label Content="€" HorizontalAlignment="Left" Margin="329,311,0,0" VerticalAlignment="Top" FontSize="20" Width="29"/>
@@ -50,5 +50,10 @@
         <Button x:Name="rmB" Background="{x:Null}" BorderThickness="0" HorizontalAlignment="Left" Margin="743,273,0,0" VerticalAlignment="Top" Click="RemoveImages" Visibility="Hidden">
             <materialDesign:PackIcon Kind="Delete" Foreground="Black" Height="25" Width="25" VerticalAlignment="Center" />
         </Button>
+        <Button Content="Δημιουργία" HorizontalAlignment="Left" Margin="555,461,0,0" VerticalAlignment="Top" Height="50" Width="178" FontSize="20" Click="CreateCarAd"  />
+        <Label Content="Περιγραφή:" HorizontalAlignment="Left" Margin="17,542,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
+        <Border BorderThickness="1.5" BorderBrush="Black" HorizontalAlignment="Left" Margin="26,581,0,0"  VerticalAlignment="Top" Height="108" Width="482">
+            <TextBox x:Name="DescriptionTB"  HorizontalAlignment="Left"    TextWrapping="Wrap" VerticalAlignment="Top" Height="108" Width="482"/>
+        </Border>
     </Grid>
 </Window>

@@ -173,5 +173,106 @@ namespace ChristosOuzouProject
             imgList.Clear();
             uploadImg.Visibility = Visibility.Hidden;
         }
+        private void CreateCarAd(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int adid = 0;
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("SELECT id FROM addresses WHERE(address LIKE @address AND municipality LIKE @mun AND region LIKE @reg)", conn);
+                comm.Parameters.AddWithValue("@address", addressCB.SelectedValue.ToString());
+                comm.Parameters.AddWithValue("@mun", cityCB.SelectedValue.ToString());
+                comm.Parameters.AddWithValue("@reg", regionCB.SelectedValue.ToString());
+                MySqlDataReader rdr = comm.ExecuteReader();
+                if (rdr.Read())
+                    adid = Convert.ToInt32(rdr["id"]);
+                rdr.Close();
+                comm = new MySqlCommand("INSERT INTO fulladdress(addressid, number) VALUES ( @adid,@number)", conn);
+                comm.Parameters.AddWithValue("@adid", adid);
+                comm.Parameters.AddWithValue("@number", addressNumberTB.Text);
+                comm.ExecuteNonQuery();
+                long adrId = comm.LastInsertedId;
+                comm = new MySqlCommand("" +
+                    "INSERT INTO Ads(userId, dateAdded,description,superAd,address) VALUES" +
+                    "( @userId, @date, @descr,false,@address)", conn);
+                comm.Parameters.AddWithValue("@userId", KonstantinosManeadis.Login_page.GetUserID());
+                comm.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd"));
+                comm.Parameters.AddWithValue("@descr", DescriptionTB.Text);
+                comm.Parameters.AddWithValue("@address", adrId);
+                comm.ExecuteNonQuery();
+                long adId = comm.LastInsertedId;
+                comm = new MySqlCommand("INSERT INTO propertyvalue VALUES(@adid,3,@make)", conn);
+                comm.Parameters.AddWithValue("@adid", adId);
+                ComboBoxItem cmbItem = makeCB.SelectedItem as ComboBoxItem;
+                comm.Parameters.AddWithValue("@make", cmbItem.Content.ToString());
+                comm.ExecuteNonQuery();
+                comm = new MySqlCommand("INSERT INTO propertyvalue VALUES(@adid,4,@model)", conn);
+                comm.Parameters.AddWithValue("@adid", adId);
+                comm.Parameters.AddWithValue("@model", modelCB.Text);
+                comm.ExecuteNonQuery();
+                comm = new MySqlCommand("INSERT INTO propertyvalue VALUES(@adid,10,@kilometerts)", conn);
+                comm.Parameters.AddWithValue("@adid", adId);
+                comm.Parameters.AddWithValue("@kilometerts", salaryTB_Copy.Text);
+                comm.ExecuteNonQuery();
+                comm = new MySqlCommand("INSERT INTO propertyvalue VALUES(@adid,12,@price)", conn);
+                comm.Parameters.AddWithValue("@adid", adId);
+                comm.Parameters.AddWithValue("@price", salaryTB.Text);
+                comm.ExecuteNonQuery();
+                comm = new MySqlCommand("INSERT INTO propertyvalue VALUES(@adid,11,@hp)", conn);
+                comm.Parameters.AddWithValue("@adid", adId);
+                comm.Parameters.AddWithValue("@hp", salaryTB_Copy1.Text);
+                comm.ExecuteNonQuery();
+                comm = new MySqlCommand("INSERT INTO propertyvalue VALUES(@adid,13,@owner)", conn);
+                comm.Parameters.AddWithValue("@adid", adId);
+                comm.Parameters.AddWithValue("@owner", salaryTB_Copy2.Text);
+                comm.ExecuteNonQuery();
+                comm = new MySqlCommand("INSERT INTO propertyvalue VALUES(@adid,14,@registration)", conn);
+                comm.Parameters.AddWithValue("@adid", adId);
+                comm.Parameters.AddWithValue("@registration", registrationDP.Text);
+                comm.ExecuteNonQuery();
+                comm = new MySqlCommand("INSERT INTO propertyvalue VALUES(@adid,15,@color)", conn);
+                comm.Parameters.AddWithValue("@adid", adId);
+                comm.Parameters.AddWithValue("@color", colorCB.Text);
+                comm.ExecuteNonQuery();
+                /*if (imgList.Count > 0)
+                {
+                    foreach (BitmapImage i in imgList)
+                    {
+                        comm = new MySqlCommand("INSERT INTO photos(adsId,photo) VALUES(@adid,@photo)", conn);
+                        byte[] data = null;
+
+                        System.Diagnostics.Debug.WriteLine(i.ToString());
+                        var ms = new MemoryStream();
+                        var jpgEncoder = new JpegBitmapEncoder();
+                        jpgEncoder.Frames.Add(BitmapFrame.Create(i));
+                        jpgEncoder.Save(ms);
+                        data = ms.GetBuffer();
+                        comm.Parameters.AddWithValue("@adid", adId);
+                        comm.Parameters.AddWithValue("@photo", data);
+                        comm.ExecuteNonQuery();
+                    }
+                    conn.Close();
+                }*/
+            }
+            catch (MySqlException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
+            makeCB.SelectedIndex = -1;
+            modelCB.SelectedIndex = -1;
+            colorCB.SelectedIndex = -1;
+            salaryTB.Text = "";
+            regionCB.SelectedIndex = -1;
+            cityCB.SelectedIndex = -1;
+            addressCB.SelectedIndex = -1;
+            addressNumberTB.Text = "";
+            DescriptionTB.Text = "";
+            rmB.Visibility = Visibility.Hidden;
+            nextBT.Visibility = Visibility.Hidden;
+            beforeBT.Visibility = Visibility.Hidden;
+            imgList.Clear();
+        }
+
     }
+    
 }

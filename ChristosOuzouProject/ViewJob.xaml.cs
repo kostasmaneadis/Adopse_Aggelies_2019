@@ -22,7 +22,8 @@ namespace ChristosOuzouProject
         static string constring = "SERVER=localhost;DATABASE=mydb;UID=christos;PASSWORD=2341093066;";
         MySqlConnection conn = new MySqlConnection(constring);
         List<BitmapImage> imgList = new List<BitmapImage>();
-        
+        /* MySqlCommand comm = new MySqlCommand("SELECT region, municipality, address FROM addresses AD WHERE AD.id IN (SELECT addressid FROM fulladdress WHERE id IN (SELECT address FROM ads WHERE ))",conn);
+        MySqlDataReader rdr = comm.ExecuteReader();*/
         public ViewJob()
         {
             InitializeComponent();
@@ -43,7 +44,6 @@ namespace ChristosOuzouProject
                     img.Source = i;
                     fullimagespanel.Children.Add(img);
                 }
-                // jobTitleL.Content = 
                 jobLocationL.Content = rdr["region"].ToString() + ", " + rdr["municipality"].ToString();
                  jobAddressL.Content= rdr["address"].ToString() + ", " + rdr["number"].ToString();
                 jobKindL.Content= rdr["title"].ToString();

@@ -208,7 +208,7 @@ namespace ChristosOuzouProject
                 comm = new MySqlCommand("" +
                     "INSERT INTO Ads(userId, dateAdded,description,superAd,address) VALUES" +
                     "( @userId, @date, @descr,false,@address)", conn);
-                comm.Parameters.AddWithValue("@userId", 1);
+                comm.Parameters.AddWithValue("@userId", KonstantinosManeadis.Login_page.GetUserID());
                 comm.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd"));
                 comm.Parameters.AddWithValue("@descr", DescriptionTB.Text);
                 comm.Parameters.AddWithValue("@address", adrId);
@@ -223,7 +223,7 @@ namespace ChristosOuzouProject
                 comm.Parameters.AddWithValue("@adid", adId);
                 comm.Parameters.AddWithValue("@salary", salaryTB.Text);
                 comm.ExecuteNonQuery();
-                if (imgList.Count > 0)
+                /*if (imgList.Count > 0)
                 {
                     foreach (BitmapImage i in imgList)
                     {
@@ -241,7 +241,7 @@ namespace ChristosOuzouProject
                         comm.ExecuteNonQuery();
                     }
                     conn.Close();
-                }
+                }*/
             }
             catch (MySqlException ex)
             {
@@ -263,6 +263,3 @@ namespace ChristosOuzouProject
         }
     }
 }
-
-    
-
