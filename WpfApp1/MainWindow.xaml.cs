@@ -31,7 +31,7 @@ namespace WpfApp1
         private void Logout_Button_Click(object sender, RoutedEventArgs e)
         {
             KonstantinosManeadis.Login_page.Logout();
-            //Application.Current.Shutdown();
+            Main_Content_Frame.Content = new KonstantinosManeadis.Login_page();
         }
         private void LogoutandExit_Button_Click(object sender, RoutedEventArgs e)
         {

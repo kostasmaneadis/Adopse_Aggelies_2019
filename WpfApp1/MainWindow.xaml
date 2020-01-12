@@ -8,19 +8,19 @@
         xmlns:materialDesing="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Title="ΑΔΟΠΣΕ 2019/20" Height="1080" Width="1920"
-        WindowState="Maximized"   
+        WindowState="Maximized" 
         >
 
     <Grid Background="LightGray">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1.45*" />
-            <ColumnDefinition Width="10.55*" />
+            <ColumnDefinition Width="1.50*" />
+            <ColumnDefinition Width="10.50*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*" />
             <RowDefinition Height="10*" />
         </Grid.RowDefinitions>
-        <Grid Grid.Column="1" Height="78" VerticalAlignment="Top" Background="#FF2B8985" Margin="0,4,0,0">
+        <Grid Grid.Column="1" Height="78" VerticalAlignment="Top" Background="#33ab9f" Margin="0,4,0,0">
             <TextBlock Text="YOUR ADS" HorizontalAlignment="Center" FontSize="22" />
             <StackPanel VerticalAlignment="Center">
                 <TextBlock Text="Settings" HorizontalAlignment="Right" FontSize="18"/>
@@ -42,9 +42,9 @@
             </StackPanel>
         </Grid>
         <Frame Grid.Column="1" Grid.Row="1" x:Name="Main_Content_Frame" NavigationUIVisibility="Hidden" />
-        <Grid Grid.Column="0" Grid.Row="1" x:Name="GridMenu" Width="231" HorizontalAlignment="Left" Background="#FF2B8985">
+        <Grid Grid.Column="0" Grid.Row="1" x:Name="GridMenu" Width="231" HorizontalAlignment="Left" Background="#33ab9f">
             <StackPanel>
-                <ListView Background="#FF2B8985">
+                <ListView Background="#33ab9f">
                     <ListViewItem Height="60" Width="135">
                         <StackPanel Orientation="Horizontal">
                             <materialDesing:PackIcon Kind="ViewDashboard" Width="25" Height="25" VerticalAlignment="Top"/>
