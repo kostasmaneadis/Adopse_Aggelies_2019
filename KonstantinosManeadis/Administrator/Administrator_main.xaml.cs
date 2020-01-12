@@ -305,7 +305,7 @@ namespace KonstantinosManeadis.Administrator
                 string adid = alert_id_textbox.Text;
                 command.Parameters.AddWithValue("adid", adid);
 
-                string status = "ok";
+                string status = "OK";
                 command.Parameters.AddWithValue("status", status);
 
                 command.ExecuteNonQuery();

@@ -50,8 +50,8 @@ namespace realEstate_DimitrisAnastasiadis
             selectReturn = database.selectQuery($"SELECT a.stringValue FROM propertyvalue a WHERE a.adId={adID} and a.propertyId=9");
             bathrooms.Text = selectReturn[0];
 
-            selectReturn = database.selectQuery($"SELECT date_format(stringValue,  '%d/%m/%Y') FROM propertyvalue a WHERE a.propertyId=7 and a.adId={adID}");
-            dateBuiltTB.Text += selectReturn[0];
+            //selectReturn = database.selectQuery($"SELECT date_format(stringValue,  '%d/%m/%Y') FROM propertyvalue a WHERE a.propertyId=7 and a.adId={adID}");
+            //dateBuiltTB.Text += selectReturn[0];
             selectReturn = database.selectQuery($"SELECT a.stringValue FROM propertyvalue a WHERE a.adId={adID} and a.propertyId=6");
             statusTB.Text += selectReturn[0];
             selectReturn = database.selectQuery($"SELECT a.stringValue FROM propertyvalue a WHERE a.adId={adID} and a.propertyId=5");
