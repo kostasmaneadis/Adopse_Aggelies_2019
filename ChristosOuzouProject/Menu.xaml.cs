@@ -24,7 +24,7 @@ namespace ChristosOuzouProject
         }
         private void newAdButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow newAdpage = new MainWindow();
+            AddJob newAdpage = new AddJob();
             NavigationService.Navigate(newAdpage);
         }
 

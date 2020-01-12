@@ -20,7 +20,8 @@ namespace ChristosOuzouProject
     /// </summary>
     public partial class AddCar : Page
     {
-        static string constring = "SERVER=localhost;DATABASE=mydb;UID=christos;PASSWORD=2341093066;";
+        //static string constring = "SERVER=localhost;DATABASE=mydb;UID=christos;PASSWORD=2341093066;";
+        static string constring = "server=localhost;port=3308;user id = root; database=adopse;CHARSET=utf8";
         MySqlConnection conn = new MySqlConnection(constring);
         int imagecounter = -1;
         List<BitmapImage> imgList = new List<BitmapImage>();
