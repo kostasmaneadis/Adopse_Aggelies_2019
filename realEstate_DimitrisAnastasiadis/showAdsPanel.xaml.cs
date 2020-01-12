@@ -36,7 +36,7 @@ namespace realEstate_DimitrisAnastasiadis
         {
             List<AdtoDisplay> AdstoDisplay = new List<AdtoDisplay>();
             List<String> AdIds = new List<String>();
-            AdIds = database.selectQuery("SELECT a.adId FROM ads a");
+            AdIds = database.selectQuery("SELECT a.adId FROM ads a WHERE ban_status='alert' OR ban_status='OK'");
 
             foreach(String item in AdIds)
             {
