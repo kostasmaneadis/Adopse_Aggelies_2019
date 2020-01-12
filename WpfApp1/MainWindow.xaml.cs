@@ -30,8 +30,15 @@ namespace WpfApp1
         }
         private void Logout_Button_Click(object sender, RoutedEventArgs e)
         {
+            KonstantinosManeadis.Login_page.Logout();
+            //Application.Current.Shutdown();
+        }
+        private void LogoutandExit_Button_Click(object sender, RoutedEventArgs e)
+        {
+            KonstantinosManeadis.Login_page.Logout();
             Application.Current.Shutdown();
         }
+        
         private void Login_Button_Click(object sender, RoutedEventArgs e)
         {
             Main_Content_Frame.Content = new KonstantinosManeadis.Login_page();
@@ -65,7 +72,14 @@ namespace WpfApp1
 
         private void Manager_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Main_Content_Frame.Content = new KonstantinosManeadis.Manager.Manager_main();
         }
+        private void About_Button_Click(object sender, RoutedEventArgs e)
+        {
+            KonstantinosManeadis.About_window newWindows = new KonstantinosManeadis.About_window();
+            newWindows.Show();
+            
+        }
+        
     }
 }

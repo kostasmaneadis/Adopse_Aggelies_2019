@@ -1,0 +1,32 @@
+﻿<Page x:Class="KonstantinosManeadis.Manager.Manager_main"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KonstantinosManeadis.Manager"
+      mc:Ignorable="d" 
+      d:DesignHeight="1920" d:DesignWidth="1080"
+      Title="Manager_main">
+
+    <Grid>
+        <Label x:Name="no_access_label"></Label>
+        <TabControl x:Name="main_tab_control" Width="1280" Height="720" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem x:Name="aggelies_tab" Header="Aggelies" Margin="2,-3,-124,1">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="Ads_datatable" AutoGenerateColumns="True" Width="1280" Height="720" />
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="actions_tab" Header="Actions" Margin="128,-2,-250,0">
+               
+               
+
+            </TabItem>
+            <TabItem x:Name="alerts_tab" Header="Alerts" Margin="252,-2,-374,0">
+                <Grid Background="#FFE5E5E5">
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Page>

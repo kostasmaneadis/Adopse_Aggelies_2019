@@ -91,6 +91,11 @@ namespace KonstantinosManeadis
         {
             return User_ID;
         }
+        public static void Logout()
+        {
+            User_Role = "guest";
+            User_ID = "#";
+        }
         private void username_textbox_TextChanged(object sender, TextChangedEventArgs e)
         {
 

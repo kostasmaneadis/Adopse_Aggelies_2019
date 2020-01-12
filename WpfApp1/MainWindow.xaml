@@ -26,12 +26,17 @@
                 <TextBlock Text="Settings" HorizontalAlignment="Right" FontSize="18"/>
                 <materialDesing:PopupBox HorizontalAlignment="Right" Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
                     <StackPanel Width="150">
-                        <Button Content="Administrator's Panel" Click="Administrator_Button_Click"/>
-                        <Button Content="Manager's Panel" Click="Manager_Button_Click"/>
+                        <Button Content="Administrator" Click="Administrator_Button_Click"/>
+                        <Button Content="Manager" Click="Manager_Button_Click"/>
                         <Separator/>
-                        <Button Content="About"/>
+                        <Button Content="About" Click="About_Button_Click"/>
                         <Separator/>
+                        <Button Content="Login" Click="Login_Button_Click"/>
+                        <Button Content="Register" Click="Register_Button_Click"/>
+                        <Separator/>
+                        <Button Content="My Profile" Click="UserProfile_Button_Click"/>
                         <Button Content="Logout" Click="Logout_Button_Click"/>
+                        <Button Content="Logout and Exit" Click="LogoutandExit_Button_Click"/>
                     </StackPanel>
                 </materialDesing:PopupBox>
             </StackPanel>
@@ -54,15 +59,6 @@
                 <Separator Width="150"/>
                 <Button Width="250" Content="Other"  Height="55" FontSize="20" />
                 <Separator Width="150"/>
-                <Button Width="250" Content="Login" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="Login_Button_Click"  />
-                <Separator Width="150"/>
-                <Button Width="250" Content="Register" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="Register_Button_Click"/>
-                <Separator Width="150"/>
-                <Button Width="250" Content="My Profile" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="UserProfile_Button_Click"/>
-                <Separator Width="150"/>
-                <Button Width="250" Content="Administrator's Panel" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="Administrator_Button_Click"/>
-                <Separator Width="150"/>
-                <Button Width="250" Content="Manager's Panel" Height="55" FontSize="20" VerticalAlignment="Bottom" Click="Manager_Button_Click"/>
             </StackPanel>
         </Grid>
         <Grid  Grid.Row="0" Grid.Column="0" Height="170" Background="White">

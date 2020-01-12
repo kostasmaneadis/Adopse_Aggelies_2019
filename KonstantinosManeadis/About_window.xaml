@@ -1,0 +1,17 @@
+﻿<Window x:Class="KonstantinosManeadis.About_window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KonstantinosManeadis"
+        mc:Ignorable="d"
+        Title="About_window" Height="450" Width="800">
+    <Grid  Height="450" Width="800">
+        <Label Content="Η Συγκεκριμένη εφαρμογή δημιουργήθηκε στα Πλαίσια του μαθήματος Ανάπτυξη Ολοκληρωμένων Πληροφοριακών " Margin="95,111,59,292"/>
+        <Label Content="Συστημάτων του Tμήματος Μηχανικών Πληροφορικής και Ηλεκτρονικών Συστημάτων του ΔΙΠΑΕ " Margin="95,147,59,258"/>
+        <Label Content="Μανεάδης Κωνσταντίνος | Ουζουνίδης Χρήστος | Αναστασιάδης Δημήτρης | Καυκαλιάς Στέφανος" Margin="124,340,124,66"/>
+        <Label Content=" https://sites.google.com/view/adopse-iee-dipae/" Margin="91,222,400,160"/>
+        <Label Content=" 2019-2020" Margin="347,366,341,34" />
+
+    </Grid>
+</Window>
