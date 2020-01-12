@@ -130,12 +130,6 @@
 
                 </StackPanel>
             </Expander>
-            <!--Φωτογραφίες-->
-            <Expander FontSize="22" FontWeight="Bold" Header="Φωτογραφίες" IsExpanded="True" Margin="0 10 0 0">
-            </Expander>
-            <!--Στοιχεία Επικοινωνίας-->
-            <Expander FontSize="22" FontWeight="Bold" Header="Στοιχεία Επικοινωνίας" IsExpanded="True"/>
-            <!--Submit Button-->
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="8*"/>
