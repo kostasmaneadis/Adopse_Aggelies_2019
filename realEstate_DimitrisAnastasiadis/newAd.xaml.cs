@@ -87,7 +87,7 @@ namespace realEstate_DimitrisAnastasiadis
             int addressID = int.Parse(addressIDString[0]);
             long fullAddressID = database.insertAutoIncrement($"insert into fulladdress(addressid,number) values({addressID},{arithmosTB.Text})");
 
-            adID = database.insertAutoIncrement($"INSERT INTO ads(userId,dateAdded,description,categoryId,superAd,address) VALUES({userId},now(), '{description}', 2, 0, {fullAddressID})");
+            adID = database.insertAutoIncrement($"INSERT INTO ads(userId,dateAdded,description,categoryId,superAd,address,ban_status) VALUES({userId},now(), '{description}', 2, 0, {fullAddressID}, 'OK')");
 
             database.insertQuery($"INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES({adID}, 1, '{sell_rent}')");
             database.insertQuery($"INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES({adID}, 2, '{price}')");
@@ -99,6 +99,13 @@ namespace realEstate_DimitrisAnastasiadis
             database.insertQuery($"INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES({adID}, 9, '{bathrooms}')");
             foreach (int item in floor)
                 database.insertQuery($"INSERT INTO propertyvalue(adId, propertyId, stringValue) VALUES({adID}, 5, '{item}')");
+
+            if (adID > 0)
+            {
+                MessageBox.Show("Επιτυχής υποβολή!");
+                showAdsPanel.selectedAdId = adID.ToString();
+                NavigationService.Navigate(new showAd());
+            }         
         }
 
         private bool dataValidated()

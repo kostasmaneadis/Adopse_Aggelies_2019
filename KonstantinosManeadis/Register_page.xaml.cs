@@ -12,6 +12,12 @@ namespace KonstantinosManeadis
         public Register_page()
         {
             InitializeComponent();
+            string User_ID = KonstantinosManeadis.Login_page.GetUserID(); 
+            if (User_ID != "#")
+            {
+                main_register_grid.Visibility = Visibility.Hidden;
+                status.Content = "You are already Logged In, so you don't need to Register";
+            }
         }
         private static String static_connectionString = Settings1.Default.connectionString;
         private void Register_Click(object sender, RoutedEventArgs e)

@@ -21,43 +21,85 @@
             </TabItem>
             <TabItem x:Name="aggelies_tab" Header="Aggelies" Margin="88,-2,-210,0">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="Ads_datatable" AutoGenerateColumns="True" Width="1280" Height="720" />
+                    <DataGrid x:Name="Ads_datatable" AutoGenerateColumns="True" Width="1280" Height="720" IsReadOnly="True"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="actions_tab" Header="Actions" Margin="212,-2,-334,0">
                 <Grid Background="#FFE5E5E5">
-                    <Label x:Name="users_label" FontSize="22">Users</Label>
-                    <TextBox x:Name="user_id_textbox"  materialDesign:HintAssist.Hint="UserID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,48,1162,588" />
-                    <ComboBox x:Name="users_action" Margin="152,76,1014,0" VerticalAlignment="Top" >
-                        <ComboBoxItem IsSelected="True">update</ComboBoxItem>
-                        <ComboBoxItem>delete</ComboBoxItem>
-                        <ComboBoxItem>select</ComboBoxItem>
-                    </ComboBox>
-                    <ComboBox x:Name="user_table_column" Margin="292,76,874,0" VerticalAlignment="Top" >
-                        <ComboBoxItem IsSelected="True">username</ComboBoxItem>
-                        <ComboBoxItem>firstname</ComboBoxItem>
-                        <ComboBoxItem>lastname</ComboBoxItem>
-                        <ComboBoxItem>password</ComboBoxItem>
-                        <ComboBoxItem>email</ComboBoxItem>
-                        <ComboBoxItem>role</ComboBoxItem>
-                    </ComboBox>
-                    <TextBox x:Name="user_textbox_new_value"  materialDesign:HintAssist.Hint="New Value" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="482,48,621,588" />
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="3*" />
 
-                    <Button Content="User Action" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="728,73,0,0" Width="115" Height="31" Click="User_Action_Button_Click"  />
-                    <Label x:Name="users_label_status" FontSize="15" Margin="0,135,335,484"></Label>
-                    <Separator Margin="0,208,274,417"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Label x:Name="users_label" FontSize="22">Users</Label>
+                        <TextBox x:Name="user_id_textbox"  materialDesign:HintAssist.Hint="UserID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,48,1162,127" />
+                        <ComboBox x:Name="users_action" Margin="152,76,1014,0" VerticalAlignment="Top" >
+                            <ComboBoxItem IsSelected="True">update</ComboBoxItem>
+                            <ComboBoxItem>delete</ComboBoxItem>
+                            <ComboBoxItem>select</ComboBoxItem>
+                        </ComboBox>
+                        <ComboBox x:Name="user_table_column" Margin="292,76,874,0" VerticalAlignment="Top" >
+                            <ComboBoxItem IsSelected="True">username</ComboBoxItem>
+                            <ComboBoxItem>firstname</ComboBoxItem>
+                            <ComboBoxItem>lastname</ComboBoxItem>
+                            <ComboBoxItem>password</ComboBoxItem>
+                            <ComboBoxItem>email</ComboBoxItem>
+                            <ComboBoxItem>role</ComboBoxItem>
+                        </ComboBox>
+                        <TextBox x:Name="user_textbox_new_value"  materialDesign:HintAssist.Hint="New Value" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="482,48,621,127" />
 
+                        <Button Content="User Action" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="728,73,0,0" Width="115" Height="31" Click="User_Action_Button_Click"  />
+                        <Label x:Name="users_label_status" FontSize="15" Margin="0,135,335,52"></Label>
+                        <Separator Margin="0,178,274,23" RenderTransformOrigin="0.5,0.5">
+                            
+                        </Separator>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Label x:Name="ads_label" FontSize="22">Ads</Label>
+                        <TextBox x:Name="ads_id_textbox"  materialDesign:HintAssist.Hint="AdsID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,48,1162,127" />
+                        <ComboBox x:Name="ads_action" Margin="152,76,1014,0" VerticalAlignment="Top" >
+                            <ComboBoxItem IsSelected="True">update</ComboBoxItem>
+                            <ComboBoxItem>select</ComboBoxItem>
+                            <ComboBoxItem>delete</ComboBoxItem>
+                        </ComboBox>
+                        <ComboBox x:Name="ads_table_column" Margin="292,76,874,0" VerticalAlignment="Top" >
+                            <ComboBoxItem IsSelected="True">adId</ComboBoxItem>
+                            <ComboBoxItem>description</ComboBoxItem>
+                            <ComboBoxItem>categoryId</ComboBoxItem>
+                            <ComboBoxItem>superAd</ComboBoxItem>
+                            <ComboBoxItem>address</ComboBoxItem>
+                        </ComboBox>
+                        <TextBox x:Name="ads_textbox_new_value"  materialDesign:HintAssist.Hint="New Value" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="482,48,621,127" />
+
+                        <Button Content="Ads Action" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="728,73,0,0" Width="115" Height="31" Click="Ads_Action_Button_Click" />
+                        <Label x:Name="ads_label_status" FontSize="15" Margin="0,143,335,49"></Label>
+                        <Separator Margin="0,184,274,23" RenderTransformOrigin="0.5,0.5">
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleY="-1"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <TextBox x:Name="alert_id_textbox"  materialDesign:HintAssist.Hint="Ad ID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,38,1162,127" />
+                        <Button Content="Ban" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="728,73,0,0" Width="176" Height="31" Click="Alert_Ban_Button_Click" RenderTransformOrigin="0.5,0.5" />
+                        <Button Content="Restore" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="530,73,0,0" Width="176" Height="31" Click="Alert_Restore_Button_Click" RenderTransformOrigin="0.5,0.5" />
+                        <Label x:Name="alert_label_status" FontSize="15" Margin="0,135,335,10"></Label>
+                    </Grid>
                 </Grid>
-
             </TabItem>
             <TabItem x:Name="alerts_tab" Header="Alerts" Margin="348,-2,-470,0">
                 <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="alerts_datatable" AutoGenerateColumns="True" Width="1280" Height="720" IsReadOnly="True"/>
 
                 </Grid>
             </TabItem>
-            
         </TabControl>
-
-
     </Grid>
 </Page>

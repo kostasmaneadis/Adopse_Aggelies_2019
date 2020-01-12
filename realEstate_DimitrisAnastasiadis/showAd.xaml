@@ -63,5 +63,13 @@
             </DockPanel>
             <TextBlock x:Name="descriptionTB" Text="" TextWrapping="Wrap" Margin="40 10 "/>
         </StackPanel>
+        <Grid VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="submitButton" Content="Alert" Margin="0 15 15 15" FontSize="20" FontWeight="Bold" Padding="2" Grid.Column="1" Click="submitButton_Click"/>
+        </Grid>
     </StackPanel>
+    
 </Page>

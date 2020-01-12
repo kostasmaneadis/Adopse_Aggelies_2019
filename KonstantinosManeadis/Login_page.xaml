@@ -23,8 +23,8 @@
         <Image Source="login1.png" VerticalAlignment="Top" Height="106" Margin="425,20,370,0" />
 
         <Rectangle Width="460" Height="480" Fill="White" VerticalAlignment="Center" Margin="0,80"  />
-
-        <Grid Width="460" Height="480" VerticalAlignment="Center" Margin="0,80" >
+        <Label x:Name="status" Margin="502,0,0,0" VerticalAlignment="Center" />
+        <Grid Width="460" Height="480" VerticalAlignment="Center" Margin="0,80" x:Name="main_login_grid">
             <TextBlock Text="Login" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="Gray" FontSize="35"/>
 
             <StackPanel Height="150" VerticalAlignment="Center" Margin="10,0,10,0">
