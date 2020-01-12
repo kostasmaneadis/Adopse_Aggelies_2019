@@ -17,7 +17,7 @@ namespace ChristosOuzouProject
     /// <summary>
     /// Interaction logic for ViewJob.xaml
     /// </summary>
-    public partial class ViewJob : Window
+    public partial class ViewJob : Page
     {
         static string constring = "SERVER=localhost;DATABASE=mydb;UID=christos;PASSWORD=2341093066;";
         MySqlConnection conn = new MySqlConnection(constring);

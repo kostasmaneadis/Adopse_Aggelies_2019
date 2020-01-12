@@ -1,0 +1,56 @@
+﻿<Page x:Class="ChristosOuzouProject.AddJob"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChristosOuzouProject"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="AddJob" Height="450" Width="800">
+    <Grid Height="600">
+        <Label Content="Καταχώρηση Αγγελίας Εργασίας" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="40"/>
+        <Label Content="Κύρια Κατηγορία:" HorizontalAlignment="Left" Margin="14,95,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
+        <ComboBox x:Name="mainCatCB" HorizontalAlignment="Left" Margin="233,106,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding}" DropDownClosed="Subcat_fill"/>
+        <ComboBox x:Name="subCatCB" HorizontalAlignment="Left" Margin="233,142,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding}"/>
+        <Label Content="Υποκατηγορία:" HorizontalAlignment="Left" Margin="15,129,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
+        <Label x:Name="testL" Content="" HorizontalAlignment="Left" Margin="82,384,0,0" VerticalAlignment="Top" Height="56" Width="107"/>
+        <Separator Margin="16,-56,608,70"/>
+        <Label Content="Ωράριο:" HorizontalAlignment="Left" Margin="15,163,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
+        <ComboBox x:Name="foul_part_timeCB" HorizontalAlignment="Left" Margin="233,175,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding}">
+            <ComboBoxItem Content="Πλήρες ωράριο"/>
+            <ComboBoxItem Content="Ημιαπασχόληση"/>
+        </ComboBox>
+        <Label Content="Διεύθυνση" HorizontalAlignment="Left" Margin="17,249,0,0" VerticalAlignment="Top" FontSize="20" Width="169" FontStyle="Normal" FontWeight="Bold"/>
+        <Label Content="Νομός:" HorizontalAlignment="Left" Margin="21,283,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
+        <Label Content="Πόλη/Χωριό:" HorizontalAlignment="Left" Margin="23,317,0,0" VerticalAlignment="Top" FontSize="20" Width="169" />
+        <Label Content="Διεύθυνση:" HorizontalAlignment="Left" Margin="25,351,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
+        <ComboBox x:Name="regionCB" HorizontalAlignment="Left" Margin="235,293,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding}"  DropDownClosed="City_fill"/>
+        <ComboBox x:Name="cityCB" HorizontalAlignment="Left" Margin="235,331,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding}" DropDownClosed="Address_fill"/>
+        <ComboBox x:Name="addressCB" HorizontalAlignment="Left" Margin="236,365,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding}"/>
+        <Label Content="Αριθμός:" HorizontalAlignment="Left" Margin="25,385,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
+        <TextBox x:Name="addressNumberTB" HorizontalAlignment="Left" Margin="237,395,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" Height="26" FontSize="17"/>
+        <Button Background="{x:Null}" BorderThickness="0" HorizontalAlignment="Left" Margin="618,330,0,0" VerticalAlignment="Top" Height="69" Width="70" FontSize="16" Click="UploadImg">
+            <materialDesign:PackIcon Kind="InsertPhoto" HorizontalAlignment="Left" Height="49" Width="70" RenderTransformOrigin="0.19,-1.801" />
+        </Button>
+        <Button x:Name="beforeBT"  Background="{x:Null}" HorizontalAlignment="Left" Margin="628,304,0,0" VerticalAlignment="Top" Height="20" Width="20" FontSize="16" Visibility="Hidden" Click="nextPhoto">
+            <materialDesign:PackIcon Kind="NavigateBefore" HorizontalAlignment="Center" ></materialDesign:PackIcon>
+        </Button>
+        <Image x:Name="uploadImg" HorizontalAlignment="Left" Height="187" Margin="565,116,0,0" VerticalAlignment="Top" Width="175" Visibility="Visible"/>
+        <Button x:Name="nextBT"  Background="{x:Null}" HorizontalAlignment="Left" Margin="657,304,0,0" VerticalAlignment="Top" Height="20" Width="20" FontSize="16" Visibility="Hidden"  Click="nextPhoto">
+            <materialDesign:PackIcon Kind="NavigateNext" VerticalAlignment="Center" />
+        </Button>
+        <Label Content="Περιγραφή:" HorizontalAlignment="Left" Margin="23,419,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
+        <Border BorderThickness="1.5" BorderBrush="Black" HorizontalAlignment="Left" Margin="26,461,0,0"  VerticalAlignment="Top" Height="108" Width="482">
+            <TextBox x:Name="DescriptionTB"  HorizontalAlignment="Left"    TextWrapping="Wrap" VerticalAlignment="Top" Height="108" Width="482"/>
+        </Border>
+        <Button x:Name="rmB" Background="{x:Null}" BorderThickness="0" HorizontalAlignment="Left" Margin="743,273,0,0" VerticalAlignment="Top" Click="RemoveImages" Visibility="Hidden">
+            <materialDesign:PackIcon Kind="Delete" Foreground="Black" Height="25" Width="25" VerticalAlignment="Center" />
+        </Button>
+        <Label Content="Μισθός:" HorizontalAlignment="Left" Margin="15,197,0,0" VerticalAlignment="Top" FontSize="20" Width="169"/>
+        <TextBox x:Name="salaryTB" HorizontalAlignment="Left" Margin="237,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="86" Height="26" FontSize="17"/>
+        <Label Content="€" HorizontalAlignment="Left" Margin="333,199,0,0" VerticalAlignment="Top" FontSize="20" Width="29"/>
+        <Button Content="Δημιουργία" HorizontalAlignment="Left" Margin="546,482,0,0" VerticalAlignment="Top" Height="50" Width="178" FontSize="20" Click="CreateJobAd"  />
+        <Label Foreground="Gray"  Content="Ανέβασε φωτογραφίες" HorizontalAlignment="Left" Margin="552,384,0,0" VerticalAlignment="Top" FontSize="20" Width="218" FontWeight="Thin"/>
+
+    </Grid>
+</Page>

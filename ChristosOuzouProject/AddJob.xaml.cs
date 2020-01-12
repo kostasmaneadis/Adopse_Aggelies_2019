@@ -16,24 +16,39 @@ using System.Windows.Shapes;
 namespace ChristosOuzouProject
 {
     /// <summary>
-    /// Interaction logic for AddCar.xaml
+    /// Interaction logic for AddJob.xaml
     /// </summary>
-    public partial class AddCar : Page
+    public partial class AddJob : Page
     {
         static string constring = "SERVER=localhost;DATABASE=mydb;UID=christos;PASSWORD=2341093066;";
         MySqlConnection conn = new MySqlConnection(constring);
-        int imagecounter = -1;
         List<BitmapImage> imgList = new List<BitmapImage>();
-        List<string> data1 = new List<string>();
-        List<string> data = new List<string>();
-        List<string> data2 = new List<string>();
-        public AddCar()
+        int imagecounter = -1;
+        public AddJob()
         {
             InitializeComponent();
-            CbFill();
+            CB_fill();
         }
-        private void CbFill()
+        private void CB_fill()
         {
+            List<string> data = new List<string>();
+            List<string> data1 = new List<string>();
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("SELECT title FROM category WHERE parentId=1", conn);
+                MySqlDataReader rdr = comm.ExecuteReader();
+                while (rdr.Read())
+                    data.Add(rdr["title"].ToString());
+                rdr.Close();
+                mainCatCB.ItemsSource = data;
+                conn.Close();
+            }
+            catch (MySqlException ex)
+            {
+
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
             try
             {
                 conn.Open();
@@ -44,23 +59,6 @@ namespace ChristosOuzouProject
                 rdr.Close();
                 conn.Close();
                 regionCB.ItemsSource = data1;
-                conn.Open();
-                comm = new MySqlCommand("SELECT DISTINCT make FROM vehiclemodelyear", conn);
-                rdr = comm.ExecuteReader();
-                while (rdr.Read())
-                    data.Add(rdr["make"].ToString());
-                rdr.Close();
-                conn.Close();
-                makeCB.ItemsSource = data;
-                conn.Open();
-                comm = new MySqlCommand("SELECT  color FROM carcolors", conn);
-                rdr = comm.ExecuteReader();
-                while (rdr.Read())
-                    data2.Add(rdr["color"].ToString());
-                rdr.Close();
-                conn.Close();
-                colorCB.ItemsSource = data2;
-
             }
             catch (MySqlException ex)
             {
@@ -68,26 +66,48 @@ namespace ChristosOuzouProject
                 System.Diagnostics.Debug.WriteLine(ex.ToString());
             }
         }
-
-        public void Model_fill(object sender, EventArgs e)
+        public void Subcat_fill(object sender, EventArgs e)
         {
             try
             {
                 List<string> data = new List<string>();
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT model FROM vehiclemodelyear WHERE (make LIKE @par1)", conn);
-                comm.Parameters.AddWithValue("@par1", makeCB.Text);
+                MySqlCommand comm = new MySqlCommand("SELECT title FROM category WHERE parentId = (SELECT categoryId FROM category WHERE title LIKE @par1)", conn);
+                comm.Parameters.AddWithValue("@par1", mainCatCB.Text);
                 MySqlDataReader rdr = comm.ExecuteReader();
                 while (rdr.Read())
-                    data.Add(rdr["model"].ToString());
+                    data.Add(rdr["title"].ToString());
                 rdr.Close();
-                modelCB.ItemsSource = data;
+                subCatCB.ItemsSource = data;
                 conn.Close();
             }
             catch (MySqlException ex)
             {
                 System.Diagnostics.Debug.WriteLine(ex.ToString());
             }
+
+        }
+
+        public void City_fill(object sender, EventArgs e)
+        {
+            try
+            {
+                List<string> data = new List<string>();
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("SELECT DISTINCT municipality FROM addresses WHERE region LIKE @par1", conn);
+                comm.Parameters.AddWithValue("@par1", regionCB.Text);
+                MySqlDataReader rdr = comm.ExecuteReader();
+                while (rdr.Read())
+                    data.Add(rdr["municipality"].ToString());
+                rdr.Close();
+                cityCB.ItemsSource = data;
+                conn.Close();
+            }
+            catch (MySqlException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
+
         }
         public void Address_fill(object sender, EventArgs e)
         {
@@ -103,27 +123,6 @@ namespace ChristosOuzouProject
                     data.Add(rdr["address"].ToString());
                 rdr.Close();
                 addressCB.ItemsSource = data;
-                conn.Close();
-            }
-            catch (MySqlException ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.ToString());
-            }
-
-        }
-        public void City_fill(object sender, EventArgs e)
-        {
-            try
-            {
-                List<string> data = new List<string>();
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT DISTINCT municipality FROM addresses WHERE region LIKE @par1", conn);
-                comm.Parameters.AddWithValue("@par1", regionCB.Text);
-                MySqlDataReader rdr = comm.ExecuteReader();
-                while (rdr.Read())
-                    data.Add(rdr["municipality"].ToString());
-                rdr.Close();
-                cityCB.ItemsSource = data;
                 conn.Close();
             }
             catch (MySqlException ex)
@@ -168,12 +167,16 @@ namespace ChristosOuzouProject
             uploadImg.Source = imgList.ElementAt(imagecounter);
 
         }
+
         private void RemoveImages(object sender, RoutedEventArgs e)
         {
             imgList.Clear();
             uploadImg.Visibility = Visibility.Hidden;
         }
-        private void CreateCarAd(object sender, RoutedEventArgs e)
+
+
+
+        private void CreateJobAd(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -187,7 +190,7 @@ namespace ChristosOuzouProject
                 if (rdr.Read())
                     adid = Convert.ToInt32(rdr["id"]);
                 rdr.Close();
-                comm = new MySqlCommand("INSERT INTO fulladdress(addressid, number) VALUES ( @adid,@number)", conn);
+                comm = new MySqlCommand("INSERT INTO fulladdress(addressid, number) VALUES( @adid,@number)", conn);
                 comm.Parameters.AddWithValue("@adid", adid);
                 comm.Parameters.AddWithValue("@number", addressNumberTB.Text);
                 comm.ExecuteNonQuery();
@@ -201,38 +204,14 @@ namespace ChristosOuzouProject
                 comm.Parameters.AddWithValue("@address", adrId);
                 comm.ExecuteNonQuery();
                 long adId = comm.LastInsertedId;
-                comm = new MySqlCommand("INSERT INTO propertyvalue VALUES(@adid,3,@make)", conn);
+                comm = new MySqlCommand("INSERT INTO propertyvalue VALUES(@adid,1,@fptime)", conn);
                 comm.Parameters.AddWithValue("@adid", adId);
-                ComboBoxItem cmbItem = makeCB.SelectedItem as ComboBoxItem;
-                comm.Parameters.AddWithValue("@make", cmbItem.Content.ToString());
+                ComboBoxItem cmbItem = foul_part_timeCB.SelectedItem as ComboBoxItem;
+                comm.Parameters.AddWithValue("@fptime", cmbItem.Content.ToString());
                 comm.ExecuteNonQuery();
-                comm = new MySqlCommand("INSERT INTO propertyvalue VALUES(@adid,4,@model)", conn);
+                comm = new MySqlCommand("INSERT INTO propertyvalue VALUES(@adid,2,@salary)", conn);
                 comm.Parameters.AddWithValue("@adid", adId);
-                comm.Parameters.AddWithValue("@model", modelCB.Text);
-                comm.ExecuteNonQuery();
-                comm = new MySqlCommand("INSERT INTO propertyvalue VALUES(@adid,10,@kilometerts)", conn);
-                comm.Parameters.AddWithValue("@adid", adId);
-                comm.Parameters.AddWithValue("@kilometerts", salaryTB_Copy.Text);
-                comm.ExecuteNonQuery();
-                comm = new MySqlCommand("INSERT INTO propertyvalue VALUES(@adid,12,@price)", conn);
-                comm.Parameters.AddWithValue("@adid", adId);
-                comm.Parameters.AddWithValue("@price", salaryTB.Text);
-                comm.ExecuteNonQuery();
-                comm = new MySqlCommand("INSERT INTO propertyvalue VALUES(@adid,11,@hp)", conn);
-                comm.Parameters.AddWithValue("@adid", adId);
-                comm.Parameters.AddWithValue("@hp", salaryTB_Copy1.Text);
-                comm.ExecuteNonQuery();
-                comm = new MySqlCommand("INSERT INTO propertyvalue VALUES(@adid,13,@owner)", conn);
-                comm.Parameters.AddWithValue("@adid", adId);
-                comm.Parameters.AddWithValue("@owner", salaryTB_Copy2.Text);
-                comm.ExecuteNonQuery();
-                comm = new MySqlCommand("INSERT INTO propertyvalue VALUES(@adid,14,@registration)", conn);
-                comm.Parameters.AddWithValue("@adid", adId);
-                comm.Parameters.AddWithValue("@registration", registrationDP.Text);
-                comm.ExecuteNonQuery();
-                comm = new MySqlCommand("INSERT INTO propertyvalue VALUES(@adid,15,@color)", conn);
-                comm.Parameters.AddWithValue("@adid", adId);
-                comm.Parameters.AddWithValue("@color", colorCB.Text);
+                comm.Parameters.AddWithValue("@salary", salaryTB.Text);
                 comm.ExecuteNonQuery();
                 /*if (imgList.Count > 0)
                 {
@@ -240,7 +219,7 @@ namespace ChristosOuzouProject
                     {
                         comm = new MySqlCommand("INSERT INTO photos(adsId,photo) VALUES(@adid,@photo)", conn);
                         byte[] data = null;
-
+                        
                         System.Diagnostics.Debug.WriteLine(i.ToString());
                         var ms = new MemoryStream();
                         var jpgEncoder = new JpegBitmapEncoder();
@@ -258,9 +237,9 @@ namespace ChristosOuzouProject
             {
                 System.Diagnostics.Debug.WriteLine(ex.ToString());
             }
-            makeCB.SelectedIndex = -1;
-            modelCB.SelectedIndex = -1;
-            colorCB.SelectedIndex = -1;
+            mainCatCB.SelectedIndex = -1;
+            subCatCB.SelectedIndex = -1;
+            foul_part_timeCB.SelectedIndex = -1;
             salaryTB.Text = "";
             regionCB.SelectedIndex = -1;
             cityCB.SelectedIndex = -1;
@@ -272,7 +251,6 @@ namespace ChristosOuzouProject
             beforeBT.Visibility = Visibility.Hidden;
             imgList.Clear();
         }
-
+        
     }
-    
 }

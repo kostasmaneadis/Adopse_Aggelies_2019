@@ -15,7 +15,7 @@ namespace ChristosOuzouProject
     /// <summary>
     /// Interaction logic for ViewCar.xaml
     /// </summary>
-    public partial class ViewCar : Window
+    public partial class ViewCar : Page
     {
         public ViewCar()
         {
