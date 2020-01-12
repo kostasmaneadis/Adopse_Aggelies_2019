@@ -13,13 +13,21 @@ namespace KonstantinosManeadis
     /// </summary>
     public partial class Login_page : Page
     {
-        public Login_page()
-        {
-            InitializeComponent();
-        }
+
         private static String static_connectionString = Settings1.Default.connectionString;
         private static String User_Role = "guest";
         private static String User_ID = "#";
+        public Login_page()
+        {
+            InitializeComponent();
+            if (User_ID != "#")
+            {
+                main_login_grid.Visibility = Visibility.Hidden;
+                status.Content = "You are already Logged In";
+            }
+        }
+        
+        
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
